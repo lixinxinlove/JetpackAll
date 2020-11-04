@@ -20,7 +20,8 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
         mData.add("Retrofit")
         mData.add("DataStore")
         mData.add("AlarmManager")
-        mData.add("SpringAnimationActivity")
+        mData.add("SpringAnimation")
+        mData.add("Permission")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeeViewViewHolder {
@@ -48,12 +49,17 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                 "AlarmManager" -> {
                     it.context.startActivity(Intent(it.context, AlarmManagerActivity::class.java))
                 }
-                "SpringAnimationActivity" -> {
+                "SpringAnimation" -> {
                     it.context.startActivity(
                         Intent(
                             it.context,
                             SpringAnimationActivity::class.java
                         )
+                    )
+                }
+                "Permission" -> {
+                    it.context.startActivity(
+                        Intent(it.context, PermissionActivity::class.java)
                     )
                 }
             }

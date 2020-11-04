@@ -51,7 +51,7 @@ class SpringAnimationActivity : BaseActivity() {
 //                            stiffness = SpringForce.STIFFNESS_VERY_LOW
                         }
                         addUpdateListener { animation, value, velocity ->
-                            Log.e("SpringAnimation","动画更新")
+                            Log.e("SpringAnimation", "动画更新$value")
                         }
                         addEndListener { animation, canceled, value, velocity ->
                             Log.e("SpringAnimation","动画结束")

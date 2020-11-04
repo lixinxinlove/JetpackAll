@@ -3,6 +3,9 @@
     package="com.lixinxinlove.all">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 
     <application
         android:name=".App"
@@ -12,7 +15,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
-        <activity android:name=".activity.SpringAnimationActivity"></activity>
+        <activity android:name=".activity.PermissionActivity" />
+        <activity android:name=".activity.SpringAnimationActivity" />
+
+        <!-- 7.0权限 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+
 
         <receiver
             android:name=".receiver.AlarmReceiver"

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+<!--    <external-path path="Android/data/com.lixinxinlove.all/" name="files_root" />-->
+<!--    <external-path path="." name="external_storage_root" />-->
+
+<!--    <root-path name="root" path="" /> //代表设备的根目录new File("/");-->
+<!--    <files-path name="files" path="" /> //context.getFilesDir()-->
+<!--    <cache-path name="cache" path="" /> //context.getCacheDir()-->
+<!--    <external-path name="external" path="" /> //Environment.getExternalStorageDirectory()-->
+<!--    <external-files-path name="name" path="path" /> //context.getExternalFilesDirs()-->
+<!--    <external-cache-path name="name" path="path" /> //getExternalCacheDirs()-->
+
+
+   <!-- //代表的目录即为：Environment.getExternalStorageDirectory()/Android/data/包名/-->
+    <external-path
+        name="files_root"
+        path="Android/data/data/com.lixinxinlove.all/" />
+
+    <!--//代表的目录即为：Environment.getExternalStorageDirectory()-->
+    <external-path
+        name="external_storage_root"
+        path="." />
+
+    <!--//代表的目录即为：Environment.getExternalStorageDirectory()/pics-->
+    <external-path
+        name="external"
+        path="pics" />
+
+
+    <external-files-path name="my_images" path="Android/data/com.lixinxinlove.all/files/Pictures" />
+
+</paths>
