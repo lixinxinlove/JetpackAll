@@ -22,6 +22,7 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
         mData.add("AlarmManager")
         mData.add("SpringAnimation")
         mData.add("Permission")
+        mData.add("Coordinator")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeeViewViewHolder {
@@ -60,6 +61,11 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                 "Permission" -> {
                     it.context.startActivity(
                         Intent(it.context, PermissionActivity::class.java)
+                    )
+                }
+                "Coordinator" -> {
+                    it.context.startActivity(
+                        Intent(it.context, CoordinatorActivity::class.java)
                     )
                 }
             }

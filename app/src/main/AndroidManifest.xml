@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -15,10 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
-        <activity android:name=".activity.PermissionActivity" />
-        <activity android:name=".activity.SpringAnimationActivity" />
+        <activity android:name=".activity.CoordinatorActivity"></activity>
 
-        <!-- 7.0权限 -->
+        <service
+            android:name=".service.MapService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".activity.PermissionActivity" />
+        <activity android:name=".activity.SpringAnimationActivity" /> <!-- 7.0权限 -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileProvider"
@@ -28,8 +32,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
-
 
         <receiver
             android:name=".receiver.AlarmReceiver"

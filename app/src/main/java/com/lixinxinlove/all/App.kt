@@ -4,6 +4,10 @@ import android.app.Application
 import androidx.datastore.DataStore
 import androidx.datastore.preferences.Preferences
 import androidx.datastore.preferences.createDataStore
+import com.lixinxinlove.all.util.IsForeBackGroundActivityCallback
+
+
+
 
 class App : Application() {
 
@@ -19,6 +23,8 @@ class App : Application() {
         dataStore = createDataStore(
             name = "settings"
         )
+
+        registerActivityLifecycleCallbacks(IsForeBackGroundActivityCallback())
     }
 
 }
