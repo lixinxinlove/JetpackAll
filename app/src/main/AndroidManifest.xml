@@ -14,7 +14,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
-        <activity android:name=".activity.CoordinatorActivity"></activity>
+        <receiver
+            android:name=".receiver.ShortcutReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+            </intent-filter>
+
+        </receiver>
+
+        <activity android:name=".activity.AppshortcutActivity">
+            <intent-filter>
+                <action android:name="com.lixinxinlove.all.ADD_WEBSITE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
+        </activity>
+
+
+        <activity android:name=".activity.CoordinatorActivity" />
 
         <service
             android:name=".service.MapService"
@@ -49,6 +71,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+
         </activity>
     </application>
 
