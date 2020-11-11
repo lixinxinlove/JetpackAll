@@ -7,6 +7,7 @@ import android.util.Log
 import android.webkit.*
 import com.lixinxinlove.all.R
 import com.lixinxinlove.all.base.BaseActivity
+import com.lixinxinlove.all.databinding.ActivityWebViewBinding
 import com.lixinxinlove.all.http.MyJavascriptInterface
 import kotlinx.android.synthetic.main.activity_web_view.*
 
@@ -16,9 +17,14 @@ class WebViewActivity : BaseActivity() {
     val url = "https://booking.jinmao88.com//my/score?from=app"
 
 
+    private lateinit var binding: ActivityWebViewBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_web_view)
+
+        binding = ActivityWebViewBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         setWebView()
 
         CookieSyncManager.createInstance(this)
@@ -35,27 +41,27 @@ class WebViewActivity : BaseActivity() {
         CookieSyncManager.getInstance().sync()
 
 
-        web_view.loadUrl(url)
+        binding.webView.loadUrl(url)
 
     }
 
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun setWebView() {
-        web_view.settings.allowFileAccess = true
+        binding.webView.settings.allowFileAccess = true
         // 如果访问的页面中有Javascript，则webview必须设置支持Javascript
-        web_view.settings.javaScriptEnabled = true
-        web_view.settings.cacheMode = WebSettings.LOAD_NO_CACHE;
+        binding.webView.settings.javaScriptEnabled = true
+        binding.webView.settings.cacheMode = WebSettings.LOAD_NO_CACHE;
         // 添加调用js获取分享内容
-        web_view.addJavascriptInterface( MyJavascriptInterface(), "local_obj")
-        web_view.settings.allowFileAccess = true
-        web_view.settings.setAppCacheEnabled(true)
-        web_view.settings.domStorageEnabled = true
-        web_view.settings.databaseEnabled = true
-        web_view.settings.loadsImagesAutomatically = true
-        web_view.settings.savePassword = true
-        web_view.settings.builtInZoomControls=true
-        web_view.webViewClient = object : WebViewClient() {
+        binding.webView.addJavascriptInterface( MyJavascriptInterface(), "local_obj")
+        binding.webView.settings.allowFileAccess = true
+        binding.webView.settings.setAppCacheEnabled(true)
+        binding.webView.settings.domStorageEnabled = true
+        binding.webView.settings.databaseEnabled = true
+        binding.webView.settings.loadsImagesAutomatically = true
+        binding.webView.settings.savePassword = true
+        binding.webView.settings.builtInZoomControls=true
+        binding.webView.webViewClient = object : WebViewClient() {
 
 
             override fun shouldOverrideUrlLoading(
@@ -80,7 +86,7 @@ class WebViewActivity : BaseActivity() {
         }
 
 
-        web_view.webChromeClient = object : WebChromeClient() {
+        binding.webView.webChromeClient = object : WebChromeClient() {
 
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
                 super.onProgressChanged(view, newProgress)
@@ -90,7 +96,7 @@ class WebViewActivity : BaseActivity() {
                 super.onReceivedTitle(view, title)
             }
         }
-        registerForContextMenu(web_view)
+        registerForContextMenu( binding.webView)
     }
 
 
