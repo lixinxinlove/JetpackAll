@@ -14,6 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
+        <activity android:name=".activity.WebViewActivity"></activity>
+        <activity android:name=".activity.AnimActivity" />
+
         <receiver
             android:name=".receiver.ShortcutReceiver"
             android:enabled="true"
@@ -21,7 +24,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.LOCALE_CHANGED" />
             </intent-filter>
-
         </receiver>
 
         <activity android:name=".activity.AppshortcutActivity">
@@ -31,11 +33,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
-
-
         <activity android:name=".activity.CoordinatorActivity" />
 
         <service
@@ -75,7 +73,6 @@
             <meta-data
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
-
         </activity>
     </application>
 

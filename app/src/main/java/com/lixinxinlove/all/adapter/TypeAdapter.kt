@@ -23,6 +23,8 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
         mData.add("SpringAnimation")
         mData.add("Permission")
         mData.add("Coordinator")
+        mData.add("Anim")
+        mData.add("WebView")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeeViewViewHolder {
@@ -66,6 +68,16 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                 "Coordinator" -> {
                     it.context.startActivity(
                         Intent(it.context, CoordinatorActivity::class.java)
+                    )
+                }
+                "Anim" -> {
+                    it.context.startActivity(
+                        Intent(it.context, AnimActivity::class.java)
+                    )
+                }
+                "WebView" -> {
+                    it.context.startActivity(
+                        Intent(it.context, WebViewActivity::class.java)
                     )
                 }
             }
