@@ -25,6 +25,7 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
         mData.add("Coordinator")
         mData.add("Anim")
         mData.add("WebView")
+        mData.add("LeeView")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeeViewViewHolder {
@@ -78,6 +79,11 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                 "WebView" -> {
                     it.context.startActivity(
                         Intent(it.context, WebViewActivity::class.java)
+                    )
+                }
+                "LeeView" -> {
+                    it.context.startActivity(
+                        Intent(it.context, LeeViewActivity::class.java)
                     )
                 }
             }

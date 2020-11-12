@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
-        <activity android:name=".activity.WebViewActivity"></activity>
+        <activity android:name=".activity.LeeViewActivity"></activity>
+        <activity android:name=".activity.WebViewActivity" />
         <activity android:name=".activity.AnimActivity" />
 
         <receiver
