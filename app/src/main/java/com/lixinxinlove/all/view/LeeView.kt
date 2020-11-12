@@ -1,11 +1,13 @@
 package com.lixinxinlove.all.view
 
+import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
+import android.view.animation.BounceInterpolator
 import com.lixinxinlove.all.dp
 
 class LeeView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
@@ -84,6 +86,13 @@ class LeeView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
             false,
             bgPaint
         )
+    }
+
+    fun setValues(mProgress: Int) {
+        val animator = ObjectAnimator.ofInt(this, "progress", mProgress)
+        animator.duration = 1000
+        animator.interpolator = BounceInterpolator()
+        animator.start()
     }
 
 
