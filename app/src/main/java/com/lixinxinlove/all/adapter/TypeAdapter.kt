@@ -26,6 +26,7 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
         mData.add("Anim")
         mData.add("WebView")
         mData.add("LeeView")
+        mData.add("TabLayout")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeeViewViewHolder {
@@ -84,6 +85,10 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                 "LeeView" -> {
                     it.context.startActivity(
                         Intent(it.context, LeeViewActivity::class.java)
+                    )
+                }"TabLayout" -> {
+                    it.context.startActivity(
+                        Intent(it.context, TabLayoutActivity::class.java)
                     )
                 }
             }
