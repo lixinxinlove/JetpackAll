@@ -10,6 +10,7 @@ import com.lixinxinlove.all.base.BaseActivity
 import com.lixinxinlove.all.fragment.CardFragment
 import com.lixinxinlove.all.transform.CardTransformer
 import com.lixinxinlove.all.transform.CardTransformer2
+import com.lixinxinlove.all.transform.OverlayTransformer
 import kotlin.concurrent.fixedRateTimer
 
 class ViewPagerActivity : BaseActivity() {
@@ -43,7 +44,7 @@ class ViewPagerActivity : BaseActivity() {
         cardAdapter2 = ViewPager2Adapter(this, mData)
 
         viewPager2.setCurrentItem(mData.size - 1, false)
-        viewPager2.setPageTransformer(CardTransformer2())
+        viewPager2.setPageTransformer(OverlayTransformer (mData.size))
         viewPager2.adapter = cardAdapter2
 
         viewPager2.adapter
