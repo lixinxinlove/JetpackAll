@@ -28,6 +28,7 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
         mData.add("LeeView")
         mData.add("TabLayout")
         mData.add("CalendarActivity")
+        mData.add("SmoothScrollActivity")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeeViewViewHolder {
@@ -87,13 +88,20 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                     it.context.startActivity(
                         Intent(it.context, LeeViewActivity::class.java)
                     )
-                }"TabLayout" -> {
+                }
+                "TabLayout" -> {
                     it.context.startActivity(
                         Intent(it.context, TabLayoutActivity::class.java)
                     )
-                }"CalendarActivity" -> {
+                }
+                "CalendarActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, CalendarActivity::class.java)
+                    )
+                }
+                "SmoothScrollActivity" -> {
+                    it.context.startActivity(
+                        Intent(it.context, SmoothScrollActivity::class.java)
                     )
                 }
             }

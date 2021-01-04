@@ -32,7 +32,7 @@ class CalendarAdapter(data: MutableList<Calendar>) :
 
         val list: MutableList<DayEntity> = mutableListOf()
         val dayOfWeek = calendar[Calendar.DAY_OF_WEEK]-1
-        for (i in 1..dayOfWeek) {
+        for (i in 2..dayOfWeek) {
             list.add(DayEntity(""))
         }
         for (i in 1..calendar.getActualMaximum(Calendar.DATE)) {

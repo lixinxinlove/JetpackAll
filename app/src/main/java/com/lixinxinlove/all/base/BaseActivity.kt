@@ -6,4 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
  * 基类
  */
 open class BaseActivity : AppCompatActivity() {
+
+    public val TAG=javaClass.canonicalName
+
 }
