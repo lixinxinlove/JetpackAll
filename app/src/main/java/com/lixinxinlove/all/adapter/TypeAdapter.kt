@@ -29,6 +29,7 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
         mData.add("TabLayout")
         mData.add("CalendarActivity")
         mData.add("SmoothScrollActivity")
+        mData.add("ImageToVideoActivity")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeeViewViewHolder {
@@ -102,6 +103,10 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                 "SmoothScrollActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, SmoothScrollActivity::class.java)
+                    )
+                }"ImageToVideoActivity" -> {
+                    it.context.startActivity(
+                        Intent(it.context, ImageToVideoActivity::class.java)
                     )
                 }
             }
