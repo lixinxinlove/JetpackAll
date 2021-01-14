@@ -14,7 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
-        <activity android:name=".activity.MediaRecorderActivity"></activity>
+
+        <activity android:name=".activity.MediaRecorderActivity" />
+        <activity android:name=".activity.SurfaceViewActivity" />
+        <activity android:name=".activity.ImageToVideoActivity" />
+        <activity android:name=".activity.SmoothScrollActivity" />
         <activity android:name=".activity.CalendarActivity" />
         <activity android:name=".activity.TabLayoutActivity" />
         <activity android:name=".activity.HiltActivity" />

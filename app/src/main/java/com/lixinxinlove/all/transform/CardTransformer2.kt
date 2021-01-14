@@ -35,8 +35,8 @@ class CardTransformer2 : ViewPager2.PageTransformer {
             page.scaleX = scale
             page.scaleY = scale
 
-            page.translationY = -position * 40
-            page.translationZ = position
+           // page.translationZ = -position * 40
+           // page.translationZ = position
         }
 
 
