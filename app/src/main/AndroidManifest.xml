@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
-        <activity android:name=".activity.CalendarActivity"></activity>
+        <activity android:name=".activity.MediaRecorderActivity"></activity>
+        <activity android:name=".activity.CalendarActivity" />
         <activity android:name=".activity.TabLayoutActivity" />
         <activity android:name=".activity.HiltActivity" />
         <activity android:name=".activity.LeeViewActivity" />
