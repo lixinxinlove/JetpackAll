@@ -30,6 +30,7 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
         mData.add("CalendarActivity")
         mData.add("SmoothScrollActivity")
         mData.add("ImageToVideoActivity")
+        mData.add("SurfaceViewActivity")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeeViewViewHolder {
@@ -104,9 +105,15 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                     it.context.startActivity(
                         Intent(it.context, SmoothScrollActivity::class.java)
                     )
-                }"ImageToVideoActivity" -> {
+                }
+                "ImageToVideoActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, ImageToVideoActivity::class.java)
+                    )
+                }
+                "SurfaceViewActivity" -> {
+                    it.context.startActivity(
+                        Intent(it.context, SurfaceViewActivity::class.java)
                     )
                 }
             }
