@@ -3,16 +3,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-  android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.TransitionActivity">
 
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="explode"
+        android:text="分解" />
 
     <Button
-        android:onClick="explode"
-        android:text="explode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="slide"
+        android:text="滑动" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="fade"
+        android:text="淡入淡出" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sharedElements1"
+        android:text="共享元素1"
+        android:transitionName="myButton1" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sharedElements2"
+        android:text="共享元素2"
+        android:transitionName="myButton2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sharedElements4"
+        android:text="共享元素4"
+        android:transitionName="myButton4" />
+
 
 </LinearLayout>
