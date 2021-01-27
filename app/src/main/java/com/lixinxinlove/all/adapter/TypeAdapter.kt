@@ -32,6 +32,7 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
         mData.add("ImageToVideoActivity")
         mData.add("SurfaceViewActivity")
         mData.add("TransitionActivity")
+        mData.add("OKIOActivity")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeeViewViewHolder {
@@ -116,9 +117,15 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                     it.context.startActivity(
                         Intent(it.context, SurfaceViewActivity::class.java)
                     )
-                }"TransitionActivity" -> {
+                }
+                "TransitionActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, TransitionActivity::class.java)
+                    )
+                }
+                "OKIOActivity" -> {
+                    it.context.startActivity(
+                        Intent(it.context, OKIOActivity::class.java)
                     )
                 }
             }

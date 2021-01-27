@@ -12,9 +12,13 @@ import com.lixinxinlove.all.base.BaseActivity
 import com.lixinxinlove.all.http.GitHubService
 import com.lixinxinlove.all.http.RetrofitFactory
 import com.lixinxinlove.all.http.data.UserRepos
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class RetrofitActivity : BaseActivity() {
 
     private lateinit var reposRecyclerView: RecyclerView
