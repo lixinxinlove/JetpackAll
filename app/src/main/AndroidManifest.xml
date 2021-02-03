@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
-        <activity android:name=".activity.SharedElementsActivity"></activity>
+        <activity android:name=".activity.CppActivity"></activity>
+        <activity android:name=".activity.SharedElementsActivity" />
         <activity android:name=".activity.FadeActivity" />
         <activity android:name=".activity.SlideActivity" />
         <activity android:name=".activity.ExplodeActivity" />
