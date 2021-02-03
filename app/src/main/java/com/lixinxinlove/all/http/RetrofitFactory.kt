@@ -1,16 +1,24 @@
 package com.lixinxinlove.all.http
 
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+
+@Module
+@InstallIn(ActivityComponent::class)
 class RetrofitFactory {
 
     companion object {
         @Volatile
         private var INSTANCE: Retrofit? = null
 
+        @Provides
         fun getRetrofit(): Retrofit {
             val tempInstance = INSTANCE
             if (tempInstance != null) {

@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">JetpackAll</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Hilt加载Fragment</string>
     <string name="add_new_website">添加</string>
     <string name="add_new_website_short">跳到详情页</string>
 </resources>

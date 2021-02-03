@@ -33,6 +33,9 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
         mData.add("SurfaceViewActivity")
         mData.add("TransitionActivity")
         mData.add("CppActivity")
+        mData.add("OKIOActivity")
+        mData.add("HiltActivity")
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeeViewViewHolder {
@@ -117,13 +120,23 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                     it.context.startActivity(
                         Intent(it.context, SurfaceViewActivity::class.java)
                     )
-                }"TransitionActivity" -> {
+                }
+                "TransitionActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, TransitionActivity::class.java)
                     )
                 }"CppActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, CppActivity::class.java)
+                    )
+                }
+                "OKIOActivity" -> {
+                    it.context.startActivity(
+                        Intent(it.context, OKIOActivity::class.java)
+                    )
+                }"HiltActivity" -> {
+                    it.context.startActivity(
+                        Intent(it.context, HiltActivity::class.java)
                     )
                 }
             }
