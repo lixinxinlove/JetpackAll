@@ -7,8 +7,6 @@ using namespace std;
 extern "C" JNIEXPORT jstring
 Java_com_lixinxinlove_all_activity_CppActivity_stringFromJNI(JNIEnv *env, jobject /* this */) {
     string hello = "Hello from C++";
-    string md5 = "gdfgdgdggg";
-
-
+    string md5 = MD5::md5String(hello);
     return env->NewStringUTF(md5.c_str());
 }
