@@ -113,6 +113,9 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
 
     implementation 'com.github.bumptech.glide:glide:4.11.0'
-
+    //图片变视频
     implementation 'com.github.MasayukiSuda:ImageToVideoAndroid:v0.1.0'
+    //disklrucache
+    //implementation 'com.jakewharton:disklrucache:2.0.2'
+
 }
