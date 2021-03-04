@@ -36,6 +36,7 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
         mData.add("OKIOActivity")
         mData.add("HiltActivity")
         mData.add("DiskLruCacheActivity")
+        mData.add("GZipActivity")
 
     }
 
@@ -142,6 +143,10 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                 }"DiskLruCacheActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, DiskLruCacheActivity::class.java)
+                    )
+                }"GZipActivity" -> {
+                    it.context.startActivity(
+                        Intent(it.context, GZipActivity::class.java)
                     )
                 }
             }

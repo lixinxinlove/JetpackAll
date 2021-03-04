@@ -15,10 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
 
+
         <activity android:name=".activity.CppActivity"/>
         <activity android:name=".activity.OKIOActivity"/>
         <activity android:name=".activity.SharedElementsActivity"/>
         <activity android:name=".activity.DiskLruCacheActivity"/>
+        <activity android:name=".activity.GZipActivity"/>
         <activity android:name=".activity.FadeActivity" />
         <activity android:name=".activity.SlideActivity" />
         <activity android:name=".activity.ExplodeActivity" />
