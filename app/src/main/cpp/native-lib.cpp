@@ -1,10 +1,12 @@
 #include <jni.h>
 #include <string>
+#include "md5-lib.cpp"
 
-extern "C" JNIEXPORT jstring JNICALL
-Java_com_lixinxinlove_all_activity_CppActivity_stringFromJNI(
-        JNIEnv* env,
-        jobject /* this */) {
-    std::string hello = "Hello from C++";
-    return env->NewStringUTF(hello.c_str());
+using namespace std;
+
+extern "C" JNIEXPORT jstring
+Java_com_lixinxinlove_all_activity_CppActivity_stringFromJNI(JNIEnv *env, jobject /* this */) {
+    string hello = "Hello from C++";
+    string md5 = MD5::md5String(hello);
+    return env->NewStringUTF(md5.c_str());
 }

@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.dynamicanimation.animation.DynamicAnimation
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
+import androidx.dynamicanimation.animation.SpringForce.DAMPING_RATIO_NO_BOUNCY
 import com.lixinxinlove.all.R
 import com.lixinxinlove.all.base.BaseActivity
 
@@ -38,26 +39,29 @@ class SpringAnimationActivity : BaseActivity() {
                     test.translationY = event.rawY - offsetY
                 }
                 MotionEvent.ACTION_UP -> {
-                    SpringAnimation(test, DynamicAnimation.TRANSLATION_Y).apply {
+                    SpringAnimation(test, DynamicAnimation.TRANSLATION_Y, 0f).apply {
                         spring = SpringForce().apply {
-//                            dampingRatio = DAMPING_RATIO_NO_BOUNCY
-//                            stiffness = SpringForce.STIFFNESS_VERY_LOW
+                            dampingRatio = DAMPING_RATIO_NO_BOUNCY
+                            stiffness = SpringForce.STIFFNESS_VERY_LOW
                         }
-                        animateToFinalPosition(0f)
+                        start()
                     }
-                    SpringAnimation(test, DynamicAnimation.TRANSLATION_X).apply {
+
+
+
+                    SpringAnimation(test, DynamicAnimation.TRANSLATION_X, 0f).apply {
                         spring = SpringForce().apply {
-//                            dampingRatio = DAMPING_RATIO_NO_BOUNCY
-//                            stiffness = SpringForce.STIFFNESS_VERY_LOW
+                            dampingRatio = DAMPING_RATIO_NO_BOUNCY
+                            stiffness = SpringForce.STIFFNESS_VERY_LOW
                         }
                         addUpdateListener { animation, value, velocity ->
                             Log.e("SpringAnimation", "动画更新$value")
                         }
                         addEndListener { animation, canceled, value, velocity ->
-                            Log.e("SpringAnimation","动画结束")
+                            Log.e("SpringAnimation", "动画结束")
                         }
 
-                        animateToFinalPosition(0f)
+                        start()
                     }
 
 

@@ -11,18 +11,17 @@ import dagger.hilt.android.HiltAndroidApp
 @HiltAndroidApp
 class App : Application() {
 
-
-    companion object{
-        lateinit var dataStore: DataStore<Preferences>
-    }
-
-
-
     override fun onCreate() {
         super.onCreate()
-        Log.e("App","onCreate")
+        instance = this
+        Log.e("App", "onCreate")
         dataStore = createDataStore(name = "settings")
         registerActivityLifecycleCallbacks(IsForeBackGroundActivityCallback())
+    }
+
+    companion object {
+        lateinit var dataStore: DataStore<Preferences>
+        var instance: App? = null
     }
 
 }
