@@ -14,9 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
-        <activity android:name=".activity.Main2Activity"
-            android:launchMode="singleInstance"
-            />
+        <activity android:name=".activity.GotoLinkActivity"></activity>
+        <activity
+            android:name=".activity.Main2Activity"
+            android:launchMode="singleInstance" />
         <activity android:name=".activity.FloatWinfowActivity" />
         <activity android:name=".activity.CppActivity" />
         <activity android:name=".activity.OKIOActivity" />
