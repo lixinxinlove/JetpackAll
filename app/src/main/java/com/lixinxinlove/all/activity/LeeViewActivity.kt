@@ -13,9 +13,9 @@ class LeeViewActivity : BaseActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.leeView.setOnClickListener {
-            binding.leeView.setValues(100)
-        }
+//        binding.leeView.setOnClickListener {
+//            binding.leeView.setValues(100)
+//        }
 
     }
 }
