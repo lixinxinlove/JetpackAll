@@ -31,11 +31,10 @@ class DiskLruCacheActivity : BaseActivity() {
         textCache.text = data
 
 
-
         val uri = Uri.parse("alipays://platformapi/startapp")
-        var intent =  Intent(Intent.ACTION_VIEW, uri)
+        var intent = Intent(Intent.ACTION_VIEW, uri)
         intent.addFlags(FLAG_ACTIVITY_NEW_TASK)
-        startActivity(intent);
+        startActivity(intent)
 
     }
 
