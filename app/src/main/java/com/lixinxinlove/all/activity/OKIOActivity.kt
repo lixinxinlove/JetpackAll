@@ -24,7 +24,7 @@ class OKIOActivity : BaseActivity() {
 
         var file: File = File(filesDir.path.toString() + "/test.txt")
         writeLines(file)
-        text.setText( readLines(file))
+        text.text = readLines(file)
 
     }
 

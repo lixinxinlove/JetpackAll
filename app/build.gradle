@@ -122,4 +122,8 @@ dependencies {
     implementation 'com.airbnb:deeplinkdispatch:5.3.0'
     kapt 'com.airbnb:deeplinkdispatch-processor:5.3.0'
 
+    //图片加载库 coil
+    implementation("io.coil-kt:coil:1.2.0")
+
+
 }
