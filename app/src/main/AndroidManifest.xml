@@ -16,7 +16,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
-        <activity android:name=".activity.BiometricPromptActivity"/>
+        <!--FlutterActivity-->
+        <activity android:name=".activity.FlutterActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:theme="@style/FlutterPageTheme"
+            android:windowSoftInputMode="adjustResize"
+            />
+        <!--生物识别-->
+        <activity android:name=".activity.BiometricPromptActivity" />
+        <!--deeplink-->
         <activity android:name=".activity.GotoLinkActivity" />
         <activity
             android:name=".activity.Main2Activity"
