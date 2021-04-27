@@ -38,6 +38,7 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
         mData.add("DiskLruCacheActivity")
         mData.add("GZipActivity")
         mData.add("FlutterActivity")
+        mData.add("DownloadImageActivity")
 
     }
 
@@ -152,6 +153,10 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                 }"FlutterActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, FlutterActivity::class.java)
+                    )
+                }"DownloadImageActivity" -> {
+                    it.context.startActivity(
+                        Intent(it.context, DownloadImageActivity::class.java)
                     )
                 }
             }
