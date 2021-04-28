@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/lixinxinlove/flutter_module/BuildConfig.java
+ com.lixinxinlove.flutter_module.BuildConfig
