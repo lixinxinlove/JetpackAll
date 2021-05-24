@@ -6,25 +6,19 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.lixinxinlove.all.R
 import com.lixinxinlove.all.base.BaseActivity
-import io.flutter.embedding.android.FlutterView
-import io.flutter.embedding.engine.FlutterEngine
-import io.flutter.embedding.engine.FlutterEngineCache
-import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
-
 
 class FlutterActivity : BaseActivity() {
 
-    private lateinit var mFlutter1Engine: FlutterEngine
-    private lateinit var mFlutter1View: FlutterView
+    // private lateinit var mFlutter1Engine: FlutterEngine
+    // private lateinit var mFlutter1View: FlutterView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flutter)
 
 
-        mFlutter1Engine = FlutterEngineCache.getInstance().get("my_engine_id")!!
-        mFlutter1View = createFlutterView()
-        mFlutter1View.attachToFlutterEngine(mFlutter1Engine)
-
+//        mFlutter1Engine = FlutterEngineCache.getInstance().get("my_engine_id")!!
+//        mFlutter1View = createFlutterView()
+//        mFlutter1View.attachToFlutterEngine(mFlutter1Engine)
 
 
     }
@@ -32,42 +26,42 @@ class FlutterActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        mFlutter1Engine.getLifecycleChannel().appIsResumed()
+       //  mFlutter1Engine.getLifecycleChannel().appIsResumed()
     }
 
     override fun onPause() {
         super.onPause()
-        mFlutter1Engine.getLifecycleChannel().appIsInactive()
+        //mFlutter1Engine.getLifecycleChannel().appIsInactive()
     }
 
     override fun onStop() {
         super.onStop()
-        mFlutter1Engine.getLifecycleChannel().appIsPaused()
+        //mFlutter1Engine.getLifecycleChannel().appIsPaused()
     }
 
 
-    private fun createFlutterView(): FlutterView {
-        val flutterView = FlutterView(this)
-        val lp = FrameLayout.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.MATCH_PARENT
-        )
-        val flContainer: FrameLayout = findViewById(R.id.fl_flutter)
-        flContainer.addView(flutterView, lp)
-        flContainer.visibility = View.INVISIBLE
-        val listener: FlutterUiDisplayListener = object : FlutterUiDisplayListener {
-            override fun onFlutterUiDisplayed() {
-                flContainer.visibility = View.VISIBLE
-            }
-
-            override fun onFlutterUiNoLongerDisplayed() {
-
-            }
-
-        }
-        flutterView.addOnFirstFrameRenderedListener(listener)
-        return flutterView
-    }
+//    private fun createFlutterView(): FlutterView {
+//        val flutterView = FlutterView(this)
+//        val lp = FrameLayout.LayoutParams(
+//            ViewGroup.LayoutParams.MATCH_PARENT,
+//            ViewGroup.LayoutParams.MATCH_PARENT
+//        )
+//        val flContainer: FrameLayout = findViewById(R.id.fl_flutter)
+//        flContainer.addView(flutterView, lp)
+//        flContainer.visibility = View.INVISIBLE
+//        val listener: FlutterUiDisplayListener = object : FlutterUiDisplayListener {
+//            override fun onFlutterUiDisplayed() {
+//                flContainer.visibility = View.VISIBLE
+//            }
+//
+//            override fun onFlutterUiNoLongerDisplayed() {
+//
+//            }
+//
+//        }
+//        flutterView.addOnFirstFrameRenderedListener(listener)
+//        return flutterView
+//    }
 
 
 }
