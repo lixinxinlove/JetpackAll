@@ -10,7 +10,6 @@ class FadeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fade)
         //进入退出效果 注意这里 创建的效果对象是 Fade()
-        //进入退出效果 注意这里 创建的效果对象是 Fade()
         window.enterTransition = Fade().setDuration(2000)
         window.exitTransition = Fade().setDuration(2000)
     }

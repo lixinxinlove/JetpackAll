@@ -13,6 +13,7 @@ import com.lixinxinlove.all.R
 import com.lixinxinlove.all.activity.Main2Activity
 
 class FloatWinfowServices : Service() {
+
     private var winManager: WindowManager? = null
 
     private var wmParams: WindowManager.LayoutParams? = null
