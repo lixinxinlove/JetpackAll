@@ -40,6 +40,7 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
         mData.add("FlutterActivity")
         mData.add("DownloadImageActivity")
         mData.add("WindowManagerActivity")
+        mData.add("GridItemDraggableActivity")
 
     }
 
@@ -130,7 +131,8 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                     it.context.startActivity(
                         Intent(it.context, TransitionActivity::class.java)
                     )
-                }"CppActivity" -> {
+                }
+                "CppActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, CppActivity::class.java)
                     )
@@ -139,29 +141,40 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                     it.context.startActivity(
                         Intent(it.context, OKIOActivity::class.java)
                     )
-                }"HiltActivity" -> {
+                }
+                "HiltActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, HiltActivity::class.java)
                     )
-                }"DiskLruCacheActivity" -> {
+                }
+                "DiskLruCacheActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, DiskLruCacheActivity::class.java)
                     )
-                }"GZipActivity" -> {
+                }
+                "GZipActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, GZipActivity::class.java)
                     )
-                }"FlutterActivity" -> {
+                }
+                "FlutterActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, FlutterActivity::class.java)
                     )
-                }"DownloadImageActivity" -> {
+                }
+                "DownloadImageActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, DownloadImageActivity::class.java)
                     )
-                }"WindowManagerActivity" -> {
+                }
+                "WindowManagerActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, WindowManagerActivity::class.java)
+                    )
+                }
+                "GridItemDraggableActivity" -> {
+                    it.context.startActivity(
+                        Intent(it.context, GridItemDraggableActivity::class.java)
                     )
                 }
             }
