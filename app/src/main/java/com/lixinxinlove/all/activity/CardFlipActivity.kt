@@ -2,6 +2,8 @@ package com.lixinxinlove.all.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.view.View
 import com.lixinxinlove.all.R
 import com.lixinxinlove.all.fragment.CardBackFragment
 import com.lixinxinlove.all.fragment.CardFrontFragment
@@ -15,15 +17,20 @@ class CardFlipActivity : AppCompatActivity() {
         setContentView(R.layout.activity_card_flip)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.container, CardFrontFragment.newInstance())
-                .commit()
+                .add(R.id.container, CardFrontFragment.newInstance()).commit()
         }
+
+
     }
 
+    public fun onFlip(view: View) {
+        flipCard()
+    }
 
     private fun flipCard() {
         if (showingBack) {
             supportFragmentManager.popBackStack()
+            showingBack = false
             return
         }
 

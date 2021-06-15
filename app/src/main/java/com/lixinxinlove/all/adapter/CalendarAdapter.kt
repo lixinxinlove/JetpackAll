@@ -1,6 +1,7 @@
 package com.lixinxinlove.all.adapter
 
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -24,6 +25,13 @@ class CalendarAdapter(data: MutableList<Calendar>) :
         val monthView: RecyclerView = holder.getView(R.id.item_month_recycler_view)
         monthView.layoutManager = GridLayoutManager(context, spanCount)
         val mAdapter = MonthAdapter(getDays(mCalendar))
+        mAdapter.setOnItemClickListener { adapter, view, position ->
+
+            //${position / 7}  计算点击的行
+
+            Toast.makeText(context, "点击的是第${position}----${position / 7}", Toast.LENGTH_LONG).show()
+            Log.e("CalendarAdapter", "点击的是第${position}----${position / 7}")
+        }
         monthView.adapter = mAdapter
     }
 
@@ -31,7 +39,7 @@ class CalendarAdapter(data: MutableList<Calendar>) :
     private fun getDays(calendar: Calendar): MutableList<DayEntity> {
 
         val list: MutableList<DayEntity> = mutableListOf()
-        val dayOfWeek = calendar[Calendar.DAY_OF_WEEK]-1
+        val dayOfWeek = calendar[Calendar.DAY_OF_WEEK] - 1
         for (i in 2..dayOfWeek) {
             list.add(DayEntity(""))
         }

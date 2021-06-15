@@ -86,14 +86,13 @@
 
     </LinearLayout>
 
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager_time"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:background="#00FF00">
+        android:layout_height="240dp">
 
     </androidx.viewpager2.widget.ViewPager2>
-
 
     <View
         android:id="@+id/view_bottom"

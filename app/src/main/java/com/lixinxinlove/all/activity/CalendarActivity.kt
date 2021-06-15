@@ -20,7 +20,7 @@ class CalendarActivity : BaseActivity() {
     private lateinit var mData: MutableList<Calendar>
 
 
-    private lateinit var view_bottom: View
+   // private lateinit var view_bottom: View
 
     val top = 40.dp
 
@@ -28,7 +28,7 @@ class CalendarActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
         viewPager = findViewById(R.id.view_pager_time)
-        view_bottom = findViewById(R.id.view_bottom)
+       // view_bottom = findViewById(R.id.view_bottom)
 
         mData = mutableListOf()
         for (i in 0..20) {
@@ -41,7 +41,7 @@ class CalendarActivity : BaseActivity() {
         viewPager.offscreenPageLimit = 5
 
 
-        var pa:LinearLayout.LayoutParams= view_bottom.layoutParams as LinearLayout.LayoutParams
+     //   var pa:LinearLayout.LayoutParams= view_bottom.layoutParams as LinearLayout.LayoutParams
 
 
         viewPager.registerOnPageChangeCallback(object : OnPageChangeCallback() {
@@ -60,8 +60,8 @@ class CalendarActivity : BaseActivity() {
                 Log.e(TAG, "positionOffset=$positionOffset")
                 // Log.e(TAG, "positionOffsetPixels=$positionOffsetPixels")
 
-                pa.topMargin= (-positionOffset * top).toInt()
-                view_bottom.layoutParams=pa
+             //   pa.topMargin= (-positionOffset * top).toInt()
+             //   view_bottom.layoutParams=pa
             }
 
             override fun onPageSelected(position: Int) {
