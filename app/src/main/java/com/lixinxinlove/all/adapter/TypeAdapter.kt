@@ -41,6 +41,7 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
         mData.add("DownloadImageActivity")
         mData.add("WindowManagerActivity")
         mData.add("GridItemDraggableActivity")
+        mData.add("CardFlipActivity")
 
     }
 
@@ -175,6 +176,11 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                 "GridItemDraggableActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, GridItemDraggableActivity::class.java)
+                    )
+                }
+                "CardFlipActivity" -> {
+                    it.context.startActivity(
+                        Intent(it.context, CardFlipActivity::class.java)
                     )
                 }
             }

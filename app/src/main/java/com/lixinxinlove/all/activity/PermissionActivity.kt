@@ -161,10 +161,7 @@ class PermissionActivity : BaseActivity() {
     private fun checkCameraPermission() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             when {
-                ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.CAMERA
-                ) == PackageManager.PERMISSION_GRANTED -> {
+                ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED -> {
                     // You can use the API that requires the permission.
                     //performAction()
                     tackCamera()

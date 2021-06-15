@@ -18,9 +18,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
-        <activity android:name=".activity.GridItemDraggableActivity" />
-        <!-- DeepLinkActivity -->
+        <activity android:name=".activity.CardFlipActivity"></activity>
+        <activity android:name=".activity.GridItemDraggableActivity" /> <!-- DeepLinkActivity -->
         <activity android:name=".activity.DeepLinkActivity">
+
             <!-- DeepLink h5唤醒app配置 -->
             <intent-filter>
 
