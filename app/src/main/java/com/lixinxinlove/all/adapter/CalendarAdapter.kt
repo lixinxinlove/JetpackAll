@@ -21,7 +21,8 @@ class CalendarAdapter(data: MutableList<Calendar>) :
 
     override fun convert(holder: BaseViewHolder, mCalendar: Calendar) {
 
-        holder.setText(R.id.date_text, getTime(mCalendar.time, "yyyy-MM-dd"))
+        holder.setText(R.id.date_text, getTime(mCalendar.time, "yyyy-MM"))
+
         val monthView: RecyclerView = holder.getView(R.id.item_month_recycler_view)
         monthView.layoutManager = GridLayoutManager(context, spanCount)
         val mAdapter = MonthAdapter(getDays(mCalendar))
@@ -38,14 +39,43 @@ class CalendarAdapter(data: MutableList<Calendar>) :
 
     private fun getDays(calendar: Calendar): MutableList<DayEntity> {
 
+        var tempCalendar: Calendar = calendar.clone() as Calendar
+        //tempCalendar.add(Calendar.MONDAY, -1)
+        val pMMaxDay = tempCalendar.getActualMaximum(Calendar.DATE)
         val list: MutableList<DayEntity> = mutableListOf()
-        val dayOfWeek = calendar[Calendar.DAY_OF_WEEK] - 1
-        for (i in 2..dayOfWeek) {
-            list.add(DayEntity(""))
+        var dayOfWeek = tempCalendar[Calendar.DAY_OF_WEEK] - 1
+        if (dayOfWeek==0){
+            dayOfWeek=7
         }
-        for (i in 1..calendar.getActualMaximum(Calendar.DATE)) {
-            list.add(DayEntity("$i"))
+        Log.e("getDays", "星期$dayOfWeek")
+
+        //添加上个月的日期部分
+        for (i in 1 until dayOfWeek) {
+            tempCalendar.add(Calendar.DATE, -1)
+            list.add(0, DayEntity("", tempCalendar.time))
         }
+
+        tempCalendar= calendar.clone() as Calendar
+        //添加当前月
+        val maxDay = tempCalendar.getActualMaximum(Calendar.DATE)
+        for (i in 1..maxDay) {
+
+            list.add(DayEntity("$i", tempCalendar.time))
+            tempCalendar.add(Calendar.DATE, 1)
+        }
+        var lastDayWeek = tempCalendar[Calendar.DAY_OF_WEEK] - 1
+
+        if (lastDayWeek==0){
+            lastDayWeek=7
+        }
+
+        Log.e("getDays", "星期$lastDayWeek")
+        //添加下个月的部分
+        for (i in lastDayWeek .. 7) {
+            list.add(DayEntity("$i", tempCalendar.time))
+            tempCalendar.add(Calendar.DATE, 1)
+        }
+
         return list
     }
 

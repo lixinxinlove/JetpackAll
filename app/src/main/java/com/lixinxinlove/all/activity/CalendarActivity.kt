@@ -31,15 +31,15 @@ class CalendarActivity : BaseActivity() {
        // view_bottom = findViewById(R.id.view_bottom)
 
         mData = mutableListOf()
-        for (i in 0..20) {
+        for (i in 6..20) {
             val calendar = Calendar.getInstance()
-            calendar.set(2020, i, 1)
+            calendar.set(2021, i, 1)
             mData.add(calendar)
         }
         mAdapter = CalendarAdapter(mData)
         viewPager.adapter = mAdapter
-        viewPager.offscreenPageLimit = 5
-
+//        viewPager.offscreenPageLimit = 5
+//
 
      //   var pa:LinearLayout.LayoutParams= view_bottom.layoutParams as LinearLayout.LayoutParams
 
