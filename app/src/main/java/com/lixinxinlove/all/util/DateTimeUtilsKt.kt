@@ -1,5 +1,7 @@
 package com.lixinxinlove.all.util
 
+import android.annotation.SuppressLint
+import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -7,7 +9,7 @@ import java.util.*
  *   time    ： 2021/6/24
  *   email：895330766@qq.com
  */
-object DateTimeUtils {
+object DateTimeUtilsKt {
 
 
     /**
@@ -22,6 +24,25 @@ object DateTimeUtils {
         calendar.time = Date(date)
         val intWeek = calendar[Calendar.DAY_OF_WEEK] - 1
         return weekDaysName[intWeek]
+    }
+
+
+    fun getWeekOfDate(date: Date): Int {
+        val calendar = Calendar.getInstance()
+        calendar.time = date
+        val intWeek = calendar[Calendar.DAY_OF_WEEK] - 1
+
+        if (intWeek == 0) {
+            return 7
+        }
+        return intWeek
+    }
+
+
+     @SuppressLint("SimpleDateFormat")
+     fun getTime(date: Date, ft: String): String {
+        val format = SimpleDateFormat(ft)
+        return format.format(date)
     }
 
 }
