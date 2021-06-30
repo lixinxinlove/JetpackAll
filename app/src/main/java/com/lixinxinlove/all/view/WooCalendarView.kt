@@ -5,7 +5,9 @@ import android.content.Context
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
+import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.viewpager2.widget.ViewPager2
 import com.lixinxinlove.all.R
 import com.lixinxinlove.all.adapter.CalendarAdapter
@@ -23,11 +25,25 @@ import java.util.*
 class WooCalendarView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
     LinearLayout(context, attrs, defStyleAttr) {
 
-    private  var mContext: Context=context
+    private lateinit var todayDate: Date
+
+    private var mContext: Context = context
+
+    private var dayHeight: Int = 40.dp.toInt()
+
+    private lateinit var ivLastDate: ImageView
+    private lateinit var ivNextDate: ImageView
+    private lateinit var dataTitle: TextView
+
     private lateinit var viewPager: ViewPager2
     private lateinit var mAdapter: CalendarAdapter
-    private lateinit var mData: MutableList<Calendar>
+
     private val monthList: MutableList<MonthEntity> = mutableListOf()
+
+    var redPointList: MutableList<Long> = mutableListOf()
+
+    //根据需求，只展示当前月前3个月和后2个月的日期数据
+    private var mCurrentItem = 3
 
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0) {
@@ -40,24 +56,43 @@ class WooCalendarView(context: Context, attrs: AttributeSet?, defStyleAttr: Int)
         initData()
     }
 
-
     private fun initData() {
         val inflater = mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.woo_calendar_view_layout, this)
 
-        viewPager = findViewById(R.id.view_pager_time)
+        setListener()
+    }
 
-        mData = mutableListOf()
-        for (i in 1..20) {
-            val calendar = Calendar.getInstance()
-            calendar.set(2021, i, 1)
+    fun startLoadView() {
+        val calendar = Calendar.getInstance()
+        todayDate = calendar.time
+
+        calendar.set(Calendar.DATE, 1)
+        calendar.add(Calendar.MONTH, -4)
+
+        for (i in 0..5) {
+            calendar.add(Calendar.MONTH, +1)
             monthList.add(getMonth(calendar))
         }
+        //默认选择当前的周
         // 初始化数据
         mAdapter = CalendarAdapter(monthList)
+        viewPager.offscreenPageLimit = 3
         viewPager.adapter = mAdapter
-        viewPager.offscreenPageLimit = 1
-        mAdapter.notifyDataSetChanged()
+        dataTitle.text = mAdapter.getItem(mCurrentItem).yearMonth
+        setHeight()
+
+        viewPager.setCurrentItem(mCurrentItem, false)
+    }
+
+    private fun setListener() {
+        ivLastDate.setOnClickListener {
+            viewPager.currentItem = viewPager.currentItem - 1
+        }
+        ivNextDate.setOnClickListener {
+            viewPager.currentItem = viewPager.currentItem + 1
+        }
+
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
 
             override fun onPageScrollStateChanged(state: Int) {
@@ -74,26 +109,27 @@ class WooCalendarView(context: Context, attrs: AttributeSet?, defStyleAttr: Int)
 
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-
-                val height: Float = (mAdapter.getItem(position).days.size / 7 +1) * 40.dp
-                setHeight(height)
+                mCurrentItem = position
+                dataTitle.text = mAdapter.getItem(position).yearMonth
+                setHeight()
             }
         })
+
+
     }
 
-    private fun setHeight(height: Float) {
-        val animator = ValueAnimator.ofInt(viewPager.height, height.toInt())
+    private fun setHeight() {
+        val height: Int = (mAdapter.getItem(viewPager.currentItem).days.size / 7) * dayHeight
+        val animator = ValueAnimator.ofInt(viewPager.height, height)
         animator.duration = 400
-
-        val lp= viewPager.layoutParams
+        val lp = viewPager.layoutParams
 
         animator.addUpdateListener {
-            lp.height= (it.animatedValue as Int)
-            viewPager.layoutParams=lp
+            lp.height = (it.animatedValue as Int)
+            viewPager.layoutParams = lp
         }
         animator.start()
     }
-
 
     private fun getMonth(calendar: Calendar): MonthEntity {
 
@@ -139,9 +175,14 @@ class WooCalendarView(context: Context, attrs: AttributeSet?, defStyleAttr: Int)
             }
         }
 
-        return MonthEntity(DateTimeUtilsKt.getTime(calendar.time, "yyyy-MM-dd"), list)
+        return MonthEntity(DateTimeUtilsKt.getTime(calendar.time, "yyyy年MM月"), list)
     }
 
+
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+        dayHeight = (w - 32.dp.toInt()) / 7
+    }
 
 
 }
