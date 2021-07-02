@@ -1,5 +1,6 @@
 package com.lixinxinlove.all.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -10,6 +11,13 @@ class CppActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cpp)
         findViewById<TextView>(R.id.sample_text).text = stringFromJNI()
+
+
+        findViewById<TextView>(R.id.sample_text).setOnClickListener {
+            startActivity(Intent(this,RetrofitActivity::class.java))
+            overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out)
+        }
+
     }
 
     /**

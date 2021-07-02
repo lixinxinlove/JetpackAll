@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.lixinxinlove.all.R
 import com.lixinxinlove.all.activity.*
+import com.lixinxinlove.all.glide.GlideDemoActivity
+import com.lixinxinlove.all.location.LocationActivity
 import com.lixinxinlove.all.room.RoomActivity
 
 
@@ -15,6 +17,8 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
     private var mData: MutableList<String> = arrayListOf()
 
     init {
+        mData.add("Glide高级用法")
+        mData.add("GPS定位")
         mData.add("Room")
         mData.add("ViewPager")
         mData.add("Retrofit")
@@ -43,6 +47,7 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
         mData.add("GridItemDraggableActivity")
         mData.add("CardFlipActivity")
 
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeeViewViewHolder {
@@ -63,6 +68,7 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                 }
                 "Retrofit" -> {
                     it.context.startActivity(Intent(it.context, RetrofitActivity::class.java))
+
                 }
                 "DataStore" -> {
                     it.context.startActivity(Intent(it.context, DataStoreActivity::class.java))
@@ -181,6 +187,17 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                 "CardFlipActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, CardFlipActivity::class.java)
+                    )
+                }
+                "Glide高级用法" -> {
+                    it.context.startActivity(
+                        Intent(it.context, GlideDemoActivity::class.java)
+                    )
+                }
+
+                "GPS定位" -> {
+                    it.context.startActivity(
+                        Intent(it.context, LocationActivity::class.java)
                     )
                 }
             }
