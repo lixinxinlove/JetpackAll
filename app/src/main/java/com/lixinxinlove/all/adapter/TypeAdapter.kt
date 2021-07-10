@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.lixinxinlove.all.R
 import com.lixinxinlove.all.activity.*
+import com.lixinxinlove.all.butter.ButterKnifeActivity
 import com.lixinxinlove.all.glide.GlideDemoActivity
 import com.lixinxinlove.all.location.LocationActivity
 import com.lixinxinlove.all.room.RoomActivity
@@ -17,6 +18,7 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
     private var mData: MutableList<String> = arrayListOf()
 
     init {
+        mData.add("ButterKnifeActivity")
         mData.add("Glide高级用法")
         mData.add("GPS定位")
         mData.add("Room")
@@ -198,6 +200,11 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                 "GPS定位" -> {
                     it.context.startActivity(
                         Intent(it.context, LocationActivity::class.java)
+                    )
+                }
+                "ButterKnifeActivity" -> {
+                    it.context.startActivity(
+                        Intent(it.context, ButterKnifeActivity::class.java)
                     )
                 }
             }

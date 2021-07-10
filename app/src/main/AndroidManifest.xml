@@ -21,7 +21,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
-        <activity android:name=".location.LocationActivity"></activity>
+
+        <activity android:name=".butter.ButterKnifeActivity"/>
+        <activity android:name=".location.LocationActivity"/>
 
         <service
             android:name=".location.MyLocationService"
