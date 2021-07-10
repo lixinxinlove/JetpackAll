@@ -1,8 +1,11 @@
 package com.lixinxinlove.all.butter;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.lixinxinlove.all.R;
@@ -16,6 +19,21 @@ public class ButterKnifeActivity extends AppCompatActivity {
     private TextView tv1;
     @BindView(R.id.tv2)
     private TextView tv2;
+
+
+
+
+    //synchronized
+
+
+
+    private  Handler handler = new Handler(getMainLooper()) {
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
