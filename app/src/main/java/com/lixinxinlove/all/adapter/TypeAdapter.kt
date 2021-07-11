@@ -7,6 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.lixinxinlove.all.R
 import com.lixinxinlove.all.activity.*
+import com.lixinxinlove.all.butter.ButterKnifeActivity
+import com.lixinxinlove.all.glide.GlideDemoActivity
+import com.lixinxinlove.all.location.LocationActivity
 import com.lixinxinlove.all.room.RoomActivity
 
 
@@ -15,6 +18,9 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
     private var mData: MutableList<String> = arrayListOf()
 
     init {
+        mData.add("ButterKnifeActivity")
+        mData.add("Glide高级用法")
+        mData.add("GPS定位")
         mData.add("Room")
         mData.add("ViewPager")
         mData.add("Retrofit")
@@ -40,6 +46,9 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
         mData.add("FlutterActivity")
         mData.add("DownloadImageActivity")
         mData.add("WindowManagerActivity")
+        mData.add("GridItemDraggableActivity")
+        mData.add("CardFlipActivity")
+
 
     }
 
@@ -61,6 +70,7 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                 }
                 "Retrofit" -> {
                     it.context.startActivity(Intent(it.context, RetrofitActivity::class.java))
+
                 }
                 "DataStore" -> {
                     it.context.startActivity(Intent(it.context, DataStoreActivity::class.java))
@@ -130,7 +140,8 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                     it.context.startActivity(
                         Intent(it.context, TransitionActivity::class.java)
                     )
-                }"CppActivity" -> {
+                }
+                "CppActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, CppActivity::class.java)
                     )
@@ -139,29 +150,61 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                     it.context.startActivity(
                         Intent(it.context, OKIOActivity::class.java)
                     )
-                }"HiltActivity" -> {
+                }
+                "HiltActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, HiltActivity::class.java)
                     )
-                }"DiskLruCacheActivity" -> {
+                }
+                "DiskLruCacheActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, DiskLruCacheActivity::class.java)
                     )
-                }"GZipActivity" -> {
+                }
+                "GZipActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, GZipActivity::class.java)
                     )
-                }"FlutterActivity" -> {
+                }
+                "FlutterActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, FlutterActivity::class.java)
                     )
-                }"DownloadImageActivity" -> {
+                }
+                "DownloadImageActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, DownloadImageActivity::class.java)
                     )
-                }"WindowManagerActivity" -> {
+                }
+                "WindowManagerActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, WindowManagerActivity::class.java)
+                    )
+                }
+                "GridItemDraggableActivity" -> {
+                    it.context.startActivity(
+                        Intent(it.context, GridItemDraggableActivity::class.java)
+                    )
+                }
+                "CardFlipActivity" -> {
+                    it.context.startActivity(
+                        Intent(it.context, CardFlipActivity::class.java)
+                    )
+                }
+                "Glide高级用法" -> {
+                    it.context.startActivity(
+                        Intent(it.context, GlideDemoActivity::class.java)
+                    )
+                }
+
+                "GPS定位" -> {
+                    it.context.startActivity(
+                        Intent(it.context, LocationActivity::class.java)
+                    )
+                }
+                "ButterKnifeActivity" -> {
+                    it.context.startActivity(
+                        Intent(it.context, ButterKnifeActivity::class.java)
                     )
                 }
             }

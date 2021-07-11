@@ -2,12 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lixinxinlove.all">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".App"
@@ -17,26 +21,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
-        <!--DeepLinkActivity-->
-        <activity android:name=".activity.DeepLinkActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
-            <!--DeepLink h5唤醒app配置-->
+        <activity android:name=".butter.ButterKnifeActivity"/>
+        <activity android:name=".location.LocationActivity"/>
+
+        <service
+            android:name=".location.MyLocationService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".glide.GlideDemoActivity" />
+        <activity android:name=".activity.CardFlipActivity" />
+        <activity android:name=".activity.GridItemDraggableActivity" /> <!-- DeepLinkActivity -->
+        <activity android:name=".activity.DeepLinkActivity">
+
+            <!-- DeepLink h5唤醒app配置 -->
             <intent-filter>
-                <!--ACTION_VIEW：支持被检索-->
+
+                <!-- ACTION_VIEW：支持被检索 -->
                 <action android:name="android.intent.action.VIEW" />
-                <!--CATEGORY_DEFAULT：响应隐式Intent-->
+                <!-- CATEGORY_DEFAULT：响应隐式Intent -->
                 <category android:name="android.intent.category.DEFAULT" />
-                <!--CATEGORY_BROWSABLE：可被Web浏览器唤起-->
+                <!-- CATEGORY_BROWSABLE：可被Web浏览器唤起 -->
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!--data：一个或多个，必须含有scheme标签，决定被唤起的URL格式-->
+                <!-- data：一个或多个，必须含有scheme标签，决定被唤起的URL格式 -->
                 <data
                     android:host="app.puxinwangxiao.com"
                     android:scheme="pxwxstudent" />
-
             </intent-filter>
         </activity>
         <activity android:name=".activity.FlowActivity" />

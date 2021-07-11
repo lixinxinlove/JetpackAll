@@ -3,6 +3,7 @@ package com.lixinxinlove.all.database.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.lixinxinlove.all.database.entity.UserEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserDao {
@@ -21,5 +22,10 @@ interface UserDao {
 
     @Delete
     suspend fun deleteOneUser(user: UserEntity)
+
+    
+    @Query("SELECT * FROM lee_user")
+    fun getAlphabetizedWords(): Flow<List<UserEntity>>
+
 
 }

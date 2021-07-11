@@ -6,14 +6,17 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.lixinxinlove.all.database.dao.UserDao
+import com.lixinxinlove.all.database.dao.WordDao
 import com.lixinxinlove.all.database.entity.UserEntity
+import com.lixinxinlove.all.database.entity.Word
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = arrayOf(UserEntity::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(UserEntity::class, Word::class), version = 2, exportSchema = false)
 abstract class UserDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
+    abstract fun wordDao(): WordDao
 
     private class UserDatabaseCallback(private val scope: CoroutineScope) :
         RoomDatabase.Callback() {
@@ -22,12 +25,12 @@ abstract class UserDatabase : RoomDatabase() {
             super.onOpen(db)
             INSTANCE?.let { database ->
                 scope.launch {
-                    var userDao = database.userDao()
+                    //var userDao = database.userDao()
                     // Delete all content here.
-                    userDao.deleteAll()
+                    // userDao.deleteAll()
                     // Add sample todos.
-                    var todo = UserEntity(0, "小李", "content", "三里同")
-                    userDao.insert(todo)
+                    //var todo = UserEntity(0, "小李", "content", "三里同")
+                    // userDao.insert(todo)
                 }
             }
         }
@@ -43,7 +46,11 @@ abstract class UserDatabase : RoomDatabase() {
                 return tempInstance
             }
             synchronized(this) {
-                val instance = Room.databaseBuilder(context.applicationContext, UserDatabase::class.java, "room_database").addCallback(UserDatabaseCallback(scope)).build()
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    UserDatabase::class.java,
+                    "room_database"
+                ).addCallback(UserDatabaseCallback(scope)).build()
                 INSTANCE = instance
                 return instance
             }
