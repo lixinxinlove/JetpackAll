@@ -20,21 +20,6 @@ public class ButterKnifeActivity extends AppCompatActivity {
     @BindView(R.id.tv2)
     private TextView tv2;
 
-
-
-
-    //synchronized
-
-
-
-    private  Handler handler = new Handler(getMainLooper()) {
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-        }
-    };
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
