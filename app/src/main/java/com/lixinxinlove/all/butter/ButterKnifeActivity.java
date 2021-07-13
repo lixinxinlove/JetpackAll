@@ -22,18 +22,7 @@ public class ButterKnifeActivity extends AppCompatActivity {
 
 
 
-
     //synchronized
-
-
-
-    private  Handler handler = new Handler(getMainLooper()) {
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-        }
-    };
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
