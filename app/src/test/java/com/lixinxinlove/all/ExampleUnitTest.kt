@@ -18,7 +18,6 @@ class ExampleUnitTest {
 
     @Test
     fun bubbleSort() {
-
         val arr = arrayOf(
             2,
             3,
@@ -51,31 +50,21 @@ class ExampleUnitTest {
             3,
             456
         )
-
         for (i in 0 until arr.size) {
-
             for (j in 0 until arr.size - i - 1) {
                 if (arr[j] < arr[j + 1]) {
                     val temp = arr[j]
                     arr[j] = arr[j + 1]
                     arr[j + 1] = temp
-
                 }
             }
-
         }
-
 
         arr.forEach {
             print(it)
             print(" ")
         }
-
     }
-
-
-
-
 
     //对 arr[l..r]的范围进行排序
     private fun __mergeSort(arr: Array<Int>, l: Int, r: Int) {
@@ -115,8 +104,6 @@ class ExampleUnitTest {
                 j++
             }
         }
-
-
     }
 
 
