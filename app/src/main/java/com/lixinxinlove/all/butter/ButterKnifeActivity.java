@@ -20,13 +20,6 @@ public class ButterKnifeActivity extends AppCompatActivity {
     @BindView(R.id.tv2)
     private TextView tv2;
 
-<<<<<<< HEAD
-
-
-    //synchronized
-
-=======
->>>>>>> d2fdb6ac5f5d05af3a57ffae52cef173ae8179a2
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

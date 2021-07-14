@@ -36,7 +36,6 @@ class RetrofitActivity : BaseActivity(), CoroutineScope by MainScope() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         val binding = DataBindingUtil.setContentView<ActivityRetrofitBinding>(
             this,
             R.layout.activity_retrofit
@@ -49,7 +48,7 @@ class RetrofitActivity : BaseActivity(), CoroutineScope by MainScope() {
         // progressBar = findViewById(R.id.progress_bar)
 
         //通过动态代理加载GitHubService 接口
-        val service = RetrofitFactory.getRetrofit().create(GitHubService::class.java)
+       // val service = RetrofitFactory.getRetrofit().create(GitHubService::class.java)
 
         //reposRecyclerView = findViewById(R.id.repos_recycler_view)
 
