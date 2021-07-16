@@ -18,6 +18,7 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
     private var mData: MutableList<String> = arrayListOf()
 
     init {
+        mData.add("Retrofit2Activity")
         mData.add("ButterKnifeActivity")
         mData.add("Glide高级用法")
         mData.add("GPS定位")
@@ -205,6 +206,10 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                 "ButterKnifeActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, ButterKnifeActivity::class.java)
+                    )
+                }"Retrofit2Activity" -> {
+                    it.context.startActivity(
+                        Intent(it.context, Retrofit2Activity::class.java)
                     )
                 }
             }
