@@ -60,6 +60,13 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
 
     override fun onBindViewHolder(holder: LeeViewViewHolder, position: Int) {
         holder.typeText.text = mData[position]
+
+        if (position%2==0){
+            holder.typeText.setBackgroundResource(R.color.colorAccent)
+        }else{
+            holder.typeText.setBackgroundResource(R.color.design_default_color_error)
+        }
+
         holder.typeText.setOnClickListener {
 
             when (mData[position]) {

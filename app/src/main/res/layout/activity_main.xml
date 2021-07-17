@@ -20,9 +20,18 @@
         android:layout_width="200dp"
         android:layout_height="10dp"
         android:layout_marginBottom="60dp"
+        android:background="@color/cardview_dark_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
+
+        <View
+            android:id="@+id/index_view"
+            android:layout_width="60dp"
+            android:layout_height="10dp"
+            android:background="@color/colorAccent" />
+
 
     </FrameLayout>
 

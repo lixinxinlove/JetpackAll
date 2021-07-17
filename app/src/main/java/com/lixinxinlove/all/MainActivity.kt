@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
 import android.view.MotionEvent
+import android.view.View
 import android.view.ViewTreeObserver
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
+import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lixinxinlove.all.adapter.TypeAdapter
@@ -18,12 +20,24 @@ class MainActivity : BaseActivity() {
     private lateinit var typeRecyclerView: RecyclerView
     private lateinit var adapter: TypeAdapter
 
+    private lateinit var indexView: View
+
+    private var mScrollRange = 0f //RecyclerView 可以滑动的距离
+
+    private val sc = 140.dp.toInt()
+    private var mmRvScrollX = 0f // 列表滑动距离
+
+    private var left = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        indexView = findViewById(R.id.index_view)
+
         typeRecyclerView = findViewById(R.id.type_recycler_view)
-        typeRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        typeRecyclerView.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         adapter = TypeAdapter()
         typeRecyclerView.adapter = adapter
 
@@ -39,10 +53,36 @@ class MainActivity : BaseActivity() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
 
+                mmRvScrollX += dx
 
-                mmRvScrollY += dy
+               // mmRvScrollY += dy
 
-                Log.e(TAG, "mmRvScrollY==$mmRvScrollY")
+               // Log.e(TAG, "mmRvScrollY==$mmRvScrollY")
+
+
+
+                if (mScrollRange > 0) {
+
+
+                    left = ((mmRvScrollX / mScrollRange) * sc).toInt()
+
+                    val lp = indexView.layoutParams as FrameLayout.LayoutParams
+
+                    lp.marginStart = left
+
+                    indexView.layoutParams = lp
+
+
+                    Log.e(TAG, "left==$left")
+
+                }
+
+
+                Log.e(TAG, "mmRvScrollX==$mmRvScrollX")
+                Log.e(TAG, "mScrollRange==$mScrollRange")
+
+
+
 
             }
         })
@@ -86,7 +126,6 @@ class MainActivity : BaseActivity() {
                 Log.e(TAG, "向上滑动的大概距离: ${verticalScrollRange - verticalScrollExtent}")
 
 
-
                 //列表总长度
                 val hScrollRange = typeRecyclerView.computeHorizontalScrollRange()
                 //可见区域长度
@@ -98,6 +137,7 @@ class MainActivity : BaseActivity() {
                 Log.e(TAG, "向左滑动的大概距离: ${hScrollRange - hScrollExtent}")
 
 
+                mScrollRange = (hScrollRange - hScrollExtent).toFloat()
 
 
             }
