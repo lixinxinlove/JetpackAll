@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
-        <activity android:name=".activity.Retrofit2Activity"></activity>
+        <activity android:name=".activity.LogoChangeActivity"></activity>
+        <activity android:name=".activity.Retrofit2Activity" />
         <activity android:name=".butter.ButterKnifeActivity" />
         <activity android:name=".location.LocationActivity" />
 
@@ -141,6 +142,21 @@
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
+
+
+        <activity-alias
+            android:name="mylogo"
+            android:enabled="false"
+            android:icon="@mipmap/icon_cat"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+
+        </activity-alias>
     </application>
 
 </manifest>

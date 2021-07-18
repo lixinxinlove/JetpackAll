@@ -1,6 +1,8 @@
 package com.lixinxinlove.all
 
+import android.content.ComponentName
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
@@ -16,6 +18,9 @@ import com.lixinxinlove.all.base.BaseActivity
 
 
 class MainActivity : BaseActivity() {
+
+    var isChange = true
+
 
     private lateinit var typeRecyclerView: RecyclerView
     private lateinit var adapter: TypeAdapter
@@ -55,10 +60,9 @@ class MainActivity : BaseActivity() {
 
                 mmRvScrollX += dx
 
-               // mmRvScrollY += dy
+                // mmRvScrollY += dy
 
-               // Log.e(TAG, "mmRvScrollY==$mmRvScrollY")
-
+                // Log.e(TAG, "mmRvScrollY==$mmRvScrollY")
 
 
                 if (mScrollRange > 0) {
@@ -80,8 +84,6 @@ class MainActivity : BaseActivity() {
 
                 Log.e(TAG, "mmRvScrollX==$mmRvScrollX")
                 Log.e(TAG, "mScrollRange==$mScrollRange")
-
-
 
 
             }
@@ -159,6 +161,37 @@ class MainActivity : BaseActivity() {
             return true
         }
         return super.onKeyDown(keyCode, event)
+    }
+
+
+    fun doClick(view: View) {
+        var name = "com.lixinxinlove.all.mylogo"
+        val pm = packageManager
+        if (isChange) {//第二次进来isChange会被赋值为true，所以需要点击两次才会恢复成原来的icon,真正需求的话需要缓存起来，而不是成员变量
+            isChange = false
+            //关注 COMPONENT_ENABLED_STATE_DISABLED 和 COMPONENT_ENABLED_STATE_ENABLED
+            pm.setComponentEnabledSetting(
+                ComponentName(this, "com.lixinxinlove.all.MainActivity"),
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP
+            )
+            pm.setComponentEnabledSetting(
+                ComponentName(this, name),
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP
+            )
+        } else {
+            pm.setComponentEnabledSetting(
+                ComponentName(this, "com.lixinxinlove.all.MainActivity"),
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP
+            )
+            pm.setComponentEnabledSetting(
+                ComponentName(this, name),
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP
+            )
+        }
     }
 
 }

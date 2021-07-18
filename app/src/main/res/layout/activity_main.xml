@@ -27,6 +27,7 @@
 
 
         <View
+            android:onClick="doClick"
             android:id="@+id/index_view"
             android:layout_width="60dp"
             android:layout_height="10dp"
