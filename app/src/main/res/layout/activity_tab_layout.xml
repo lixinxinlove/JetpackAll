@@ -9,18 +9,17 @@
 
 
     <com.google.android.material.tabs.TabLayout
-        app:tabSelectedTextColor="#000"
-        app:tabTextColor="#f00"
-        app:tabIndicatorFullWidth="false"
         android:id="@+id/tab_layout"
-        app:tabMinWidth="30dp"
-        app:tabIndicatorHeight="10dp"
-        app:tabIndicatorColor="#f00"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="#f00"
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="scrollable"
+        app:tabRippleColor="@null"
+        app:tabSelectedTextColor="#000"
+        app:tabTextColor="#f00">
 
     </com.google.android.material.tabs.TabLayout>
-
 
 
     <androidx.viewpager2.widget.ViewPager2
