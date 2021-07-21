@@ -15,15 +15,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lixinxinlove.all.adapter.TypeAdapter
 import com.lixinxinlove.all.base.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity() {
 
     var isChange = true
 
 
     private lateinit var typeRecyclerView: RecyclerView
-    private lateinit var adapter: TypeAdapter
+
+    @Inject lateinit var adapter: TypeAdapter
 
     private lateinit var indexView: View
 
@@ -43,7 +47,7 @@ class MainActivity : BaseActivity() {
         typeRecyclerView = findViewById(R.id.type_recycler_view)
        // typeRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         typeRecyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = TypeAdapter()
+       // adapter = TypeAdapter()
         typeRecyclerView.adapter = adapter
 
 

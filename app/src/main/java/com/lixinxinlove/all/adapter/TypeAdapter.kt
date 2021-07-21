@@ -11,9 +11,11 @@ import com.lixinxinlove.all.butter.ButterKnifeActivity
 import com.lixinxinlove.all.glide.GlideDemoActivity
 import com.lixinxinlove.all.location.LocationActivity
 import com.lixinxinlove.all.room.RoomActivity
+import javax.inject.Inject
 
 
-class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
+class TypeAdapter @Inject constructor() : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
+
 
     private var mData: MutableList<String> = arrayListOf()
 
@@ -61,9 +63,9 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
     override fun onBindViewHolder(holder: LeeViewViewHolder, position: Int) {
         holder.typeText.text = mData[position]
 
-        if (position%2==0){
+        if (position % 2 == 0) {
             holder.typeText.setBackgroundResource(R.color.colorAccent)
-        }else{
+        } else {
             holder.typeText.setBackgroundResource(R.color.design_default_color_error)
         }
 
@@ -214,7 +216,8 @@ class TypeAdapter : RecyclerView.Adapter<TypeAdapter.LeeViewViewHolder>() {
                     it.context.startActivity(
                         Intent(it.context, ButterKnifeActivity::class.java)
                     )
-                }"Retrofit2Activity" -> {
+                }
+                "Retrofit2Activity" -> {
                     it.context.startActivity(
                         Intent(it.context, Retrofit2Activity::class.java)
                     )
