@@ -3,10 +3,13 @@ package com.lixinxinlove.all.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import com.lixinxinlove.all.R
+import com.lixinxinlove.all.base.BaseActivity
+import org.opencv.android.OpenCVLoader
 
-class CppActivity : AppCompatActivity() {
+class CppActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cpp)
@@ -14,7 +17,7 @@ class CppActivity : AppCompatActivity() {
 
 
         findViewById<TextView>(R.id.sample_text).setOnClickListener {
-            startActivity(Intent(this,RetrofitActivity::class.java))
+            startActivity(Intent(this, RetrofitActivity::class.java))
             overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out)
         }
 
@@ -30,6 +33,11 @@ class CppActivity : AppCompatActivity() {
         // Used to load the 'native-lib' library on application startup.
         init {
             System.loadLibrary("native-lib")
+           if (OpenCVLoader.initDebug()) {
+               Log.e("CppActivity","initDebug成功")
+           }else{
+               Log.e("CppActivity","initDebug失败")
+           }
         }
     }
 }
