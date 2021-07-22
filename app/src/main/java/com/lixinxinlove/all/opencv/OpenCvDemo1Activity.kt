@@ -24,6 +24,8 @@ class OpenCvDemo1Activity : BaseActivity() {
 
     private lateinit var image: ImageView
     private lateinit var image4: ImageView
+    private lateinit var image5: ImageView
+    private lateinit var image6: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +37,8 @@ class OpenCvDemo1Activity : BaseActivity() {
         }
         image = findViewById(R.id.image3)
         image4 = findViewById(R.id.image4)
+        image5 = findViewById(R.id.image5)
+        image6 = findViewById(R.id.image6)
 
 
         var dstmat = Mat()
@@ -70,6 +74,63 @@ class OpenCvDemo1Activity : BaseActivity() {
         Imgproc.cvtColor(src, dst, Imgproc.COLOR_BGRA2GRAY)
         Utils.matToBitmap(dst, bitmap)
         image4.setImageBitmap(bitmap)
+        src.release()
+        dst.release()
+        val endTime = System.currentTimeMillis()
+        Log.e(TAG, "耗时=${endTime - startTime}")
+    }
+
+
+    /**
+     * 手动二值法
+     */
+    fun imageTo2(view: View) {
+
+        val startTime = System.currentTimeMillis()
+        val bitmap = BitmapFactory.decodeResource(resources, R.mipmap.mm)
+        val src = Mat()
+        val dst = Mat()
+        val dst2 = Mat()
+        Utils.bitmapToMat(bitmap, src)
+        Imgproc.cvtColor(src, dst, Imgproc.COLOR_BGRA2GRAY)
+
+
+        Imgproc.threshold(dst, dst2, 125.0, 255.0, Imgproc.THRESH_BINARY)
+
+        Utils.matToBitmap(dst2, bitmap)
+        image5.setImageBitmap(bitmap)
+        src.release()
+        dst.release()
+        dst2.release()
+        val endTime = System.currentTimeMillis()
+        Log.e(TAG, "耗时=${endTime - startTime}")
+    }
+
+
+    /**
+     * 自动二值法
+     */
+    fun imageAutoTo2(view: View) {
+
+        val startTime = System.currentTimeMillis()
+        val bitmap = BitmapFactory.decodeResource(resources, R.mipmap.mm)
+        val src = Mat()
+        val dst = Mat()
+
+        Utils.bitmapToMat(bitmap, src)
+        Imgproc.cvtColor(src, dst, Imgproc.COLOR_BGRA2GRAY)
+
+        Imgproc.adaptiveThreshold(
+            dst,
+            dst,
+            255.0,
+            Imgproc.ADAPTIVE_THRESH_MEAN_C,
+            Imgproc.THRESH_BINARY,
+            13,
+            5.0
+        )
+        Utils.matToBitmap(dst, bitmap)
+        image6.setImageBitmap(bitmap)
         src.release()
         dst.release()
         val endTime = System.currentTimeMillis()

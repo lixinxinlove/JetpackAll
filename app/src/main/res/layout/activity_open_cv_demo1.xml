@@ -1,67 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
     tools:context=".opencv.OpenCvDemo1Activity">
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/icon0" />
+
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/icon1" />
+
+
+        </LinearLayout>
 
 
         <ImageView
-            android:id="@+id/image1"
+            android:id="@+id/image3"
             android:layout_width="140dp"
             android:layout_height="140dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/icon0" />
 
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="变" />
+
+
         <ImageView
-            android:id="@+id/image2"
+            android:id="@+id/image4"
             android:layout_width="140dp"
             android:layout_height="140dp"
-            android:layout_marginStart="20dp"
-            android:src="@drawable/icon1" />
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icon0" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:onClick="imageToGray"
+            android:text="灰度" />
+
+
+        <ImageView
+            android:id="@+id/image5"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icon0" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:onClick="imageTo2"
+            android:text="手动二值" />
+
+        <ImageView
+            android:id="@+id/image6"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icon0" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:onClick="imageAutoTo2"
+            android:text="自动二值" />
 
 
     </LinearLayout>
 
-
-    <ImageView
-        android:id="@+id/image3"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/icon0" />
-
-
-    <Button
-        android:id="@+id/btn1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="变" />
-
-
-    <ImageView
-        android:id="@+id/image4"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/icon0" />
-
-
-    <Button
-        android:onClick="imageToGray"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="灰度" />
-
-
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>
