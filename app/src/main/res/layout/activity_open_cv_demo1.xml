@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".opencv.OpenCvDemo1Activity">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:src="@drawable/icon0"
+            android:id="@+id/image1"
+            android:layout_width="140dp"
+            android:layout_height="140dp" />
+
+        <ImageView
+            android:src="@drawable/icon1"
+            android:id="@+id/image2"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="20dp" />
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:src="@drawable/icon0"
+        android:id="@+id/image3"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="20dp" />
+
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="变" />
+
+
+</LinearLayout>

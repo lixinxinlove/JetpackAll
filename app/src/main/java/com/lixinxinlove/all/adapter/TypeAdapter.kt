@@ -10,6 +10,7 @@ import com.lixinxinlove.all.activity.*
 import com.lixinxinlove.all.butter.ButterKnifeActivity
 import com.lixinxinlove.all.glide.GlideDemoActivity
 import com.lixinxinlove.all.location.LocationActivity
+import com.lixinxinlove.all.opencv.OpenCvDemo1Activity
 import com.lixinxinlove.all.room.RoomActivity
 import javax.inject.Inject
 
@@ -20,6 +21,7 @@ class TypeAdapter @Inject constructor() : RecyclerView.Adapter<TypeAdapter.LeeVi
     private var mData: MutableList<String> = arrayListOf()
 
     init {
+        mData.add("OpenCv")
         mData.add("Retrofit2Activity")
         mData.add("ButterKnifeActivity")
         mData.add("Glide高级用法")
@@ -220,6 +222,11 @@ class TypeAdapter @Inject constructor() : RecyclerView.Adapter<TypeAdapter.LeeVi
                 "Retrofit2Activity" -> {
                     it.context.startActivity(
                         Intent(it.context, Retrofit2Activity::class.java)
+                    )
+                }
+                "OpenCv" -> {
+                    it.context.startActivity(
+                        Intent(it.context, OpenCvDemo1Activity::class.java)
                     )
                 }
             }

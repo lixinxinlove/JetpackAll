@@ -33,11 +33,7 @@ class CppActivity : BaseActivity() {
         // Used to load the 'native-lib' library on application startup.
         init {
             System.loadLibrary("native-lib")
-           if (OpenCVLoader.initDebug()) {
-               Log.e("CppActivity","initDebug成功")
-           }else{
-               Log.e("CppActivity","initDebug失败")
-           }
+
         }
     }
 }
