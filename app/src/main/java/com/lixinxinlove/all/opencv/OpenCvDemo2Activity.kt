@@ -1,10 +1,12 @@
 package com.lixinxinlove.all.opencv
 
+import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import com.lixinxinlove.all.R
 import com.lixinxinlove.all.base.BaseActivity
 import org.opencv.android.OpenCVLoader
@@ -23,6 +25,7 @@ class OpenCvDemo2Activity : BaseActivity() {
     private lateinit var hsvMat: Mat
     private lateinit var resultBitmap: Bitmap
     private lateinit var image: ImageView
+    private lateinit var tv: TextView
 
 
     private val contours: MutableList<MatOfPoint> = mutableListOf()
@@ -32,6 +35,7 @@ class OpenCvDemo2Activity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_open_cv_demo2)
         image = findViewById(R.id.image_view1)
+        tv = findViewById(R.id.tv_type)
         if (OpenCVLoader.initDebug()) {
             Log.e("CppActivity", "initDebug成功")
         } else {
@@ -90,6 +94,48 @@ class OpenCvDemo2Activity : BaseActivity() {
         contoursCount = contours.size
 
         Log.e(TAG, "轮廓数量$contoursCount")
+
+
+        if (contoursCount > 0) {
+
+            //绘制轮廓
+            Imgproc.drawContours(dstMat, contours, -1, Scalar(0.0, 0.0, 250.0), 4)
+
+        }
+
+        Utils.matToBitmap(dstMat, resultBitmap)
+        image.setImageBitmap(resultBitmap)
+
+    }
+
+
+    /**
+     * 获取轮廓的类型
+     */
+
+    fun onApproxPolyDP(view: View) {
+
+        var c = 0
+        var s = 0
+        var j = 0
+
+        contours.forEach {
+            var contour2f = MatOfPoint2f(*it.toArray())
+            var epsilon = 0.04 * Imgproc.arcLength(contour2f, true)
+            var approxCurve = MatOfPoint2f()
+            Imgproc.approxPolyDP(contour2f, approxCurve, epsilon, true)
+            Log.e(TAG, "approxCurve.size=${approxCurve.total()}")
+
+            if (approxCurve.rows() == 3) {
+                s++
+            }else if (approxCurve.rows() == 4){
+                j++
+            }else{
+                c++
+            }
+        }
+
+        tv.text = "轮廓=$contoursCount\n圆形=$c\n三角形=$s\n矩形=$j"
 
     }
 
