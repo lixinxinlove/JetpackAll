@@ -11,6 +11,7 @@ import com.lixinxinlove.all.butter.ButterKnifeActivity
 import com.lixinxinlove.all.glide.GlideDemoActivity
 import com.lixinxinlove.all.location.LocationActivity
 import com.lixinxinlove.all.opencv.OpenCvDemo1Activity
+import com.lixinxinlove.all.opencv.OpenCvDemoActivity
 import com.lixinxinlove.all.room.RoomActivity
 import javax.inject.Inject
 
@@ -226,7 +227,7 @@ class TypeAdapter @Inject constructor() : RecyclerView.Adapter<TypeAdapter.LeeVi
                 }
                 "OpenCv" -> {
                     it.context.startActivity(
-                        Intent(it.context, OpenCvDemo1Activity::class.java)
+                        Intent(it.context, OpenCvDemoActivity::class.java)
                     )
                 }
             }
