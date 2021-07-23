@@ -140,4 +140,14 @@ class OpenCvDemo2Activity : BaseActivity() {
     }
 
 
+    override fun onDestroy() {
+        super.onDestroy()
+        srcMat.release()
+        dstMat.release()
+        hsvMat.release()
+        resultBitmap.recycle()
+    }
+
+
+
 }
