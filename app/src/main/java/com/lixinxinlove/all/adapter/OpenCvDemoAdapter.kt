@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lixinxinlove.all.R
 import com.lixinxinlove.all.opencv.OpenCvDemo1Activity
 import com.lixinxinlove.all.opencv.OpenCvDemo2Activity
+import com.lixinxinlove.all.opencv.OpenCvDemo3Activity
 import javax.inject.Inject
 
 /**
@@ -24,6 +25,7 @@ class OpenCvDemoAdapter @Inject constructor() :
     init {
         mData.add("基础Api使用")
         mData.add("图片区域切割")
+        mData.add("图片颜色处理")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeeViewViewHolder {
@@ -48,6 +50,12 @@ class OpenCvDemoAdapter @Inject constructor() :
                 "图片区域切割" -> {
                     it.context.startActivity(
                         Intent(it.context, OpenCvDemo2Activity::class.java)
+                    )
+                }
+
+                "图片颜色处理" -> {
+                    it.context.startActivity(
+                        Intent(it.context, OpenCvDemo3Activity::class.java)
                     )
                 }
             }

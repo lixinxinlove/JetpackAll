@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
-        <activity android:name=".opencv.OpenCvDemo2Activity"></activity>
+        <activity android:name=".opencv.OpenCvDemo3Activity"></activity>
+        <activity android:name=".opencv.OpenCvDemo2Activity" />
         <activity android:name=".opencv.OpenCvDemoActivity" />
         <activity android:name=".opencv.OpenCvDemo1Activity" />
         <activity android:name=".activity.LogoChangeActivity" />
