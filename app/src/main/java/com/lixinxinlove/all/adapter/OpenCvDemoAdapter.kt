@@ -9,6 +9,7 @@ import com.lixinxinlove.all.R
 import com.lixinxinlove.all.opencv.OpenCvDemo1Activity
 import com.lixinxinlove.all.opencv.OpenCvDemo2Activity
 import com.lixinxinlove.all.opencv.OpenCvDemo4Activity
+import com.lixinxinlove.all.opencv.OpenCvDemo5Activity
 import javax.inject.Inject
 
 /**
@@ -26,6 +27,7 @@ class OpenCvDemoAdapter @Inject constructor() :
         mData.add("基础Api使用")
         mData.add("图片区域切割")
         mData.add("图片人脸识别")
+        mData.add("视频人脸识别")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeeViewViewHolder {
@@ -56,6 +58,11 @@ class OpenCvDemoAdapter @Inject constructor() :
                 "图片人脸识别" -> {
                     it.context.startActivity(
                         Intent(it.context, OpenCvDemo4Activity::class.java)
+                    )
+                }
+                "视频人脸识别" -> {
+                    it.context.startActivity(
+                        Intent(it.context, OpenCvDemo5Activity::class.java)
                     )
                 }
             }

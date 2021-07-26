@@ -115,11 +115,7 @@ class OpenCvDemo4Activity : BaseActivity() {
 
         inputStream.close()
         os.close()
-
-
         classifier = CascadeClassifier(cascadeFile.absolutePath)
-
-
     }
 
 }
