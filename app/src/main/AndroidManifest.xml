@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name=".App"
@@ -21,6 +22,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
+        <activity android:name=".activity.PermissionXActivity"></activity>
         <activity
             android:name=".opencv.OpenCvDemo5Activity"
             android:screenOrientation="landscape" />
