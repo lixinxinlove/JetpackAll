@@ -5,7 +5,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.lixinxinlove.all.R
 import com.lixinxinlove.all.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_anim.*
+
 
 
 class AnimActivity : BaseActivity() {
@@ -14,13 +14,13 @@ class AnimActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_anim)
 
-        imageView_hand.setOnClickListener {
-            val animation: Animation =
-                AnimationUtils.loadAnimation(this, R.anim.translate_anim).apply {
-                    this.fillBefore = true
-                }
-            imageView_hand.startAnimation(animation)
-        }
+//        imageView_hand.setOnClickListener {
+//            val animation: Animation =
+//                AnimationUtils.loadAnimation(this, R.anim.translate_anim).apply {
+//                    this.fillBefore = true
+//                }
+//            imageView_hand.startAnimation(animation)
+    //}
 
     }
 }

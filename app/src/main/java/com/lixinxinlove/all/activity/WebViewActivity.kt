@@ -9,7 +9,6 @@ import com.lixinxinlove.all.R
 import com.lixinxinlove.all.base.BaseActivity
 import com.lixinxinlove.all.databinding.ActivityWebViewBinding
 import com.lixinxinlove.all.http.MyJavascriptInterface
-import kotlinx.android.synthetic.main.activity_web_view.*
 
 
 class WebViewActivity : BaseActivity() {

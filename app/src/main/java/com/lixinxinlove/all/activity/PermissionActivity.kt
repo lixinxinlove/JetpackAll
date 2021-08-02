@@ -11,12 +11,13 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.lixinxinlove.all.R
 import com.lixinxinlove.all.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_permission.*
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -24,8 +25,10 @@ import java.util.*
 
 class PermissionActivity : BaseActivity() {
 
+   private lateinit var tackPhone: Button
+   private lateinit var imagePhone: ImageView
 
-    val PERMISSION_REQUEST_CODE = 1;
+    val PERMISSION_REQUEST_CODE = 1
     val REQUEST_TAKE_PHOTO = 1
 
 
@@ -189,37 +192,6 @@ class PermissionActivity : BaseActivity() {
     }
 
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        when (requestCode) {
-            PERMISSION_REQUEST_CODE -> {
-                // If request is cancelled, the result arrays are empty.
-                if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                    // Permission is granted. Continue the action or workflow
-                    // in your app.
-                    tackCamera()
-                } else {
-                    // Explain to the user that the feature is unavailable because
-                    // the features requires a permission that the user has denied.
-                    // At the same time, respect the user's decision. Don't link to
-                    // system settings in an effort to convince the user to change
-                    // their decision.
-                    Toast.makeText(this, "用户拒绝权限........", Toast.LENGTH_LONG).show()
-                }
-                return
-            }
-
-            // Add other 'when' lines to check for other
-            // permissions this app might request.
-            else -> {
-                // Ignore all other requests.
-                Toast.makeText(this, "Ignore all other requests", Toast.LENGTH_LONG).show()
-            }
-        }
-    }
 
 
     private fun tackCamera() {

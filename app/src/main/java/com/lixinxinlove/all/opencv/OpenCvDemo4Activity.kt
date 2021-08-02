@@ -11,7 +11,6 @@ import android.view.View
 import androidx.appcompat.widget.AppCompatImageView
 import com.lixinxinlove.all.R
 import com.lixinxinlove.all.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_spring_animation.*
 import org.opencv.android.OpenCVLoader
 import org.opencv.android.Utils
 import org.opencv.core.*

@@ -3,24 +3,16 @@ package com.lixinxinlove.all.activity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import androidx.datastore.preferences.core.edit
-import androidx.datastore.preferences.core.preferencesKey
 import androidx.lifecycle.lifecycleScope
-import com.lixinxinlove.all.App
 import com.lixinxinlove.all.R
 import com.lixinxinlove.all.base.BaseActivity
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class DataStoreActivity : BaseActivity() {
 
 
-    private val EXAMPLE_COUNTER = preferencesKey<Int>("example_counter")
+    //private val EXAMPLE_COUNTER = preferencesKey<Int>("example_counter")
 
 
     private lateinit var button: Button
@@ -34,9 +26,9 @@ class DataStoreActivity : BaseActivity() {
         textView = findViewById(R.id.textView)
 
 
-        val exampleCounterFlow: Flow<Int> = App.dataStore.data.map { preferences ->
-            preferences[EXAMPLE_COUNTER] ?: 0
-        }
+//        val exampleCounterFlow: Flow<Int> = App.dataStore.data.map { preferences ->
+//            preferences[EXAMPLE_COUNTER] ?: 0
+//        }
 
         button.setOnClickListener {
             lifecycleScope.launch(Dispatchers.IO) {
@@ -46,13 +38,13 @@ class DataStoreActivity : BaseActivity() {
 
         textView.setOnClickListener {
 
-            lifecycleScope.launch(Dispatchers.IO) {
-                exampleCounterFlow.collectLatest {
-                    withContext(Dispatchers.Main) {
-                        Toast.makeText(this@DataStoreActivity, "$it", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
+//            lifecycleScope.launch(Dispatchers.IO) {
+//                exampleCounterFlow.collectLatest {
+//                    withContext(Dispatchers.Main) {
+//                        Toast.makeText(this@DataStoreActivity, "$it", Toast.LENGTH_SHORT).show()
+//                    }
+//                }
+//            }
         }
 
 
@@ -61,10 +53,10 @@ class DataStoreActivity : BaseActivity() {
 
     //写数据
     suspend fun incrementCounter() {
-        App.dataStore.edit { settings ->
-            val currentCounterValue = settings[EXAMPLE_COUNTER] ?: 0
-            settings[EXAMPLE_COUNTER] = currentCounterValue + 1
-        }
+//        App.dataStore.edit { settings ->
+//            val currentCounterValue = settings[EXAMPLE_COUNTER] ?: 0
+//            settings[EXAMPLE_COUNTER] = currentCounterValue + 1
+//        }
     }
 
 
