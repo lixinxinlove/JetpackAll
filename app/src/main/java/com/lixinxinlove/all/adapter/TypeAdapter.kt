@@ -23,6 +23,7 @@ class TypeAdapter @Inject constructor() : RecyclerView.Adapter<TypeAdapter.LeeVi
 
     init {
         mData.add("OpenCv")
+        mData.add("PermissionX")
         mData.add("Retrofit2Activity")
         mData.add("ButterKnifeActivity")
         mData.add("Glide高级用法")
@@ -228,6 +229,11 @@ class TypeAdapter @Inject constructor() : RecyclerView.Adapter<TypeAdapter.LeeVi
                 "OpenCv" -> {
                     it.context.startActivity(
                         Intent(it.context, OpenCvDemoActivity::class.java)
+                    )
+                }
+                "PermissionX" -> {
+                    it.context.startActivity(
+                        Intent(it.context, PermissionXActivity::class.java)
                     )
                 }
             }
