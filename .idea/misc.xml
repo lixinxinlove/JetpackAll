@@ -4,6 +4,15 @@
     <asm skipDebug="false" skipFrames="false" skipCode="false" expandFrames="false" />
     <groovy codeStyle="LEGACY" />
   </component>
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/work/JetpackAll/app/src/main/res/layout/activity_main.xml" value="0.3324821246169561" />
+        <entry key="..\:/work/JetpackAll/app/src/main/res/layout/activity_open_cv_demo4.xml" value="0.2760416666666667" />
+        <entry key="..\:/work/JetpackAll/app/src/main/res/layout/activity_permission.xml" value="0.24739583333333334" />
+      </map>
+    </option>
+  </component>
   <component name="EntryPointsManager">
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="androidx.room.Query" />

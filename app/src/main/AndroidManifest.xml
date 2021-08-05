@@ -22,18 +22,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
-<<<<<<< HEAD
-        <activity android:name=".opencv.OpenCvDemo3Activity"></activity>
-=======
-        <activity android:name=".activity.PermissionXActivity"></activity>
+
+        <activity android:name=".activity.PermissionXActivity" />
         <activity
             android:name=".opencv.OpenCvDemo5Activity"
             android:screenOrientation="landscape" />
         <activity android:name=".opencv.OpenCvDemo4Activity" />
->>>>>>> origin/master
+        <activity android:name=".opencv.OpenCvDemo3Activity" />
         <activity android:name=".opencv.OpenCvDemo2Activity" />
-        <activity android:name=".opencv.OpenCvDemoActivity" />
         <activity android:name=".opencv.OpenCvDemo1Activity" />
+        <activity android:name=".opencv.OpenCvDemoActivity" />
         <activity android:name=".activity.LogoChangeActivity" />
         <activity android:name=".activity.Retrofit2Activity" />
         <activity android:name=".butter.ButterKnifeActivity" />
