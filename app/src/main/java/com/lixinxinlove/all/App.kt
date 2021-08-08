@@ -4,7 +4,6 @@ import android.app.Application
 import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.createDataStore
 import com.lixinxinlove.all.util.IsForeBackGroundActivityCallback
 import dagger.hilt.android.HiltAndroidApp
 
@@ -18,7 +17,7 @@ class App : Application() {
         super.onCreate()
         instance = this
         Log.e("App", "onCreate")
-        dataStore = createDataStore(name = "settings")
+       // dataStore = createDataStore(name = "settings")
         registerActivityLifecycleCallbacks(IsForeBackGroundActivityCallback())
 
 
