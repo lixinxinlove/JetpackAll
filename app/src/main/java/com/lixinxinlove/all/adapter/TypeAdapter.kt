@@ -22,6 +22,7 @@ class TypeAdapter @Inject constructor() : RecyclerView.Adapter<TypeAdapter.LeeVi
     private var mData: MutableList<String> = arrayListOf()
 
     init {
+        mData.add("Camera2")
         mData.add("OpenCv")
         mData.add("PermissionX")
         mData.add("Retrofit2Activity")
@@ -234,6 +235,11 @@ class TypeAdapter @Inject constructor() : RecyclerView.Adapter<TypeAdapter.LeeVi
                 "PermissionX" -> {
                     it.context.startActivity(
                         Intent(it.context, PermissionXActivity::class.java)
+                    )
+                }
+                "Camera2" -> {
+                    it.context.startActivity(
+                        Intent(it.context, Camera2Activity::class.java)
                     )
                 }
             }

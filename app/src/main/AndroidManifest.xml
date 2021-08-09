@@ -22,7 +22,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
-
+        <activity
+            android:name=".activity.Camera2Activity"
+            android:exported="true" />
         <activity android:name=".activity.PermissionXActivity" />
         <activity
             android:name=".opencv.OpenCvDemo5Activity"
