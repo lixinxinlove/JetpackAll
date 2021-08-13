@@ -23,6 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
         <activity
+            android:name=".activity.CameraXActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.ImageToVideo2Activity"
             android:exported="true" />
         <activity
