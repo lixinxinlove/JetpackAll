@@ -32,7 +32,7 @@ public class ImageToVideo2Activity extends AppCompatActivity {
         String dpath = getFileStreamPath(name).getPath();
 
 
-        AvcExecuteAsyncTask.execute(provider, 16, mHandler, dpath);
+      //  AvcExecuteAsyncTask.execute(provider, 16, mHandler, dpath);
 
     }
 }

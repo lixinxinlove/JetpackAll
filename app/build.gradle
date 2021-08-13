@@ -31,13 +31,12 @@ android {
         generateStubs = true
     }
 
-    //签名配置
     signingConfigs {
-        config {
-            storeFile file('datang.jks')
-            storePassword 'datang88'
-            keyAlias 'datang'
-            keyPassword 'datang88'
+        release {
+            storeFile file('location.jks')
+            storePassword 'lixinxin123'
+            keyAlias 'location'
+            keyPassword 'lixinxin123'
         }
     }
 
@@ -45,7 +44,7 @@ android {
     buildTypes {
         release {
             /* 签名类型 */
-            signingConfig signingConfigs.config
+           // signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             /* 自定义buildType */
@@ -54,7 +53,7 @@ android {
 
         debug {
             /* 签名类型 */
-            signingConfig signingConfigs.config
+            //signingConfig signingConfigs.config
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             /* 自定义buildType */
