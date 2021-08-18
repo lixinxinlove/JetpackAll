@@ -19,20 +19,16 @@ import xyz.mylib.creator.IProvider;
  */
 public class LeeProvider implements IProvider<Bitmap> {
 
-    private static Context mContext;
+    private Context mContext;
+    private List<Bitmap> bitmapList;
 
     public LeeProvider(Context context) {
         mContext = context;
-    }
-
-    private static List<Bitmap> bitmapList;
-
-    static {
         bitmapList = new ArrayList<>();
-        Bitmap bitmap0 = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.mm);
+        Bitmap bitmap0 = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.time);
         Bitmap bitmap1 = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.ic_launcher);
         Bitmap bitmap2 = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.icon_cat);
-        Bitmap bitmap3 = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.time);
+        Bitmap bitmap3 = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.mm);
 
         bitmapList.add(bitmap0);
         bitmapList.add(bitmap1);
@@ -51,6 +47,7 @@ public class LeeProvider implements IProvider<Bitmap> {
         bitmapList.add(bitmap2);
         bitmapList.add(bitmap3);
     }
+
 
     private int index = 0;
 

@@ -45,8 +45,8 @@ class MainActivity : BaseActivity() {
         indexView = findViewById(R.id.index_view)
 
         typeRecyclerView = findViewById(R.id.type_recycler_view)
-        typeRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-       // typeRecyclerView.layoutManager = LinearLayoutManager(this)
+       // typeRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        typeRecyclerView.layoutManager = LinearLayoutManager(this)
        // adapter = TypeAdapter()
         typeRecyclerView.adapter = adapter
 

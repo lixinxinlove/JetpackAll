@@ -55,22 +55,19 @@ class OpenCvDemo4Activity : BaseActivity() {
         faceImage.setImageBitmap(dstBitmap)
 
 
-        val canvas = Canvas(dstBitmap)
-        canvas.drawColor(Color.TRANSPARENT)
-        val bitmapinner: Bitmap = BitmapFactory.decodeResource(resources, R.mipmap.icon_modify)
-        // icon_modify.png
-
-
-
-        // 定义矩阵对象
-        val matrix = Matrix()
-        // 缩放图像
-        matrix.postScale(6.4f, 6.4f)
-        val bitmapd = Bitmap.createBitmap(bitmapinner, 0, 0, bitmapinner.width, bitmapinner.height, matrix, true)
-        canvas.drawBitmap(bitmapd, tlPoint.x.toFloat(), tlPoint.y.toFloat(), null)
-
-
-        faceImage.setImageBitmap(dstBitmap)
+//        val canvas = Canvas(dstBitmap)
+//        canvas.drawColor(Color.TRANSPARENT)
+//        val bitmapinner: Bitmap = BitmapFactory.decodeResource(resources, R.mipmap.icon_modify)
+//        // icon_modify.png
+//        // 定义矩阵对象
+//        val matrix = Matrix()
+//        // 缩放图像
+//        matrix.postScale(6.4f, 6.4f)
+//        val bitmapd = Bitmap.createBitmap(bitmapinner, 0, 0, bitmapinner.width, bitmapinner.height, matrix, true)
+//        canvas.drawBitmap(bitmapd, tlPoint.x.toFloat(), tlPoint.y.toFloat(), null)
+//
+//
+//        faceImage.setImageBitmap(dstBitmap)
 
     }
 
@@ -86,10 +83,7 @@ class OpenCvDemo4Activity : BaseActivity() {
         Imgproc.cvtColor(matSrc, matGray, COLOR_BGRA2GRAY)
         val faces = MatOfRect()
 
-        classifier.detectMultiScale(
-            matGray, faces, 1.05, 3, 0,
-            Size(30.0, 30.0), Size()
-        )
+        classifier.detectMultiScale(matGray, faces, 1.05, 3, 0, Size(30.0, 30.0), Size())
 
 
         val faceList: MutableList<Rect> = faces.toList()

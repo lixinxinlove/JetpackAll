@@ -56,6 +56,7 @@ class TypeAdapter @Inject constructor() : RecyclerView.Adapter<TypeAdapter.LeeVi
         mData.add("WindowManagerActivity")
         mData.add("GridItemDraggableActivity")
         mData.add("CardFlipActivity")
+        mData.add("ImageToVideo2Activity")
 
 
     }
@@ -240,6 +241,11 @@ class TypeAdapter @Inject constructor() : RecyclerView.Adapter<TypeAdapter.LeeVi
                 "Camera2" -> {
                     it.context.startActivity(
                         Intent(it.context, Camera2Activity::class.java)
+                    )
+                }
+                "ImageToVideo2Activity" -> {
+                    it.context.startActivity(
+                        Intent(it.context, ImageToVideo2Activity::class.java)
                     )
                 }
             }

@@ -1,4 +1,5 @@
 /*
+
 package com.lixinxinlove.all.util;
 
 import android.graphics.Bitmap;
@@ -7,8 +8,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 import xyz.mylib.creator.IProviderExpand;
-import xyz.mylib.video_creator.adapter.CommonAdapter;
-import xyz.mylib.video_creator.util.BitmapUtil;
+
+
 
 */
 /**
@@ -21,8 +22,11 @@ import xyz.mylib.video_creator.util.BitmapUtil;
  * </pre>
  *//*
 
+
 public class BitmapProvider implements IProviderExpand<Bitmap> {
+
     private final CommonAdapter<String> adapter;
+
     private int index = 0;
 
     private Queue<byte[]> queue;
@@ -80,4 +84,5 @@ public class BitmapProvider implements IProviderExpand<Bitmap> {
         return BitmapUtil.loadFromBytesByPNG(bytes);
     }
 }
+
 */
