@@ -3,12 +3,6 @@ plugins {
     id 'kotlin-android'
 }
 
-
-def openCVersionName = "4.5.3"
-def openCVersionCode = ((4 * 100 + 5) * 100 + 3) * 10 + 0
-
-println "OpenCV: " +openCVersionName + " " + project.buildscript.sourceFile
-
 android {
     compileSdkVersion 30
 
