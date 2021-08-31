@@ -1,5 +1,8 @@
 package com.lixinxinlove.all.util;
 
+import com.airbnb.lottie.Cancellable;
+import com.airbnb.lottie.LottieComposition;
+
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -40,6 +43,19 @@ public class LottieUtils {
 //            }
 //        });
 //    }
+
+
+
+    //获取json数据并实例化JsonObject
+    //JSONObject json = new JSONObject(response.body().string());
+    //JSONObject json;
+//    Cancellable compositionCancellable = LottieComposition.Factory.fromJson(getResources(), json, (composition) -> {
+//       // animationView.setComposition(composition);
+//       // animationView.playAnimation();
+//    });
+    // 通过cancel来停止对于composition的异步加载
+    //compositionCancellable.cancel();
+
 
 
 }
