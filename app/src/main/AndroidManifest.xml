@@ -24,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackAll">
         <activity
+            android:name=".activity.TTSActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.TelephonyManagerActivity"
             android:exported="true" />
         <activity

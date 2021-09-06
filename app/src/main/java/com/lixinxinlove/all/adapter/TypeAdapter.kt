@@ -22,6 +22,7 @@ class TypeAdapter @Inject constructor() : RecyclerView.Adapter<TypeAdapter.LeeVi
     private var mData: MutableList<String> = arrayListOf()
 
     init {
+        mData.add("TTS")
         mData.add("Camera2")
         mData.add("OpenCv")
         mData.add("PermissionX")
@@ -252,6 +253,10 @@ class TypeAdapter @Inject constructor() : RecyclerView.Adapter<TypeAdapter.LeeVi
                 "LottieAnimationViewActivity" -> {
                     it.context.startActivity(
                         Intent(it.context, LottieAnimationViewActivity::class.java)
+                    )
+                } "TTS" -> {
+                    it.context.startActivity(
+                        Intent(it.context, TTSActivity::class.java)
                     )
                 }
             }
