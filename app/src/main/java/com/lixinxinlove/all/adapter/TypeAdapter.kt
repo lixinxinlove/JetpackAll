@@ -23,6 +23,7 @@ class TypeAdapter @Inject constructor() : RecyclerView.Adapter<TypeAdapter.LeeVi
 
     init {
         mData.add("TTS")
+        mData.add("Sensor")
         mData.add("Camera2")
         mData.add("OpenCv")
         mData.add("PermissionX")
@@ -254,9 +255,16 @@ class TypeAdapter @Inject constructor() : RecyclerView.Adapter<TypeAdapter.LeeVi
                     it.context.startActivity(
                         Intent(it.context, LottieAnimationViewActivity::class.java)
                     )
-                } "TTS" -> {
+                }
+                "TTS" -> {
                     it.context.startActivity(
                         Intent(it.context, TTSActivity::class.java)
+                    )
+                }
+
+                "Sensor" -> {
+                    it.context.startActivity(
+                        Intent(it.context, SensorManagerActivity::class.java)
                     )
                 }
             }
